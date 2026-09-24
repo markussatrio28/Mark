@@ -35,3 +35,23 @@ Keep all personal text, name, date, photo paths, captions, and hidden/final mess
 ## Selected direction
 
 **Enchanted Lavender Garden** supersedes the earlier Afterglow Cinema exploration for this reference-led iteration. Preserve the editorial restraint from that direction, while making the garden pathway and layered twilight scene the main visual identity.
+
+## Motion refinement — 2026-09-24
+
+This is an audit-led motion pass over the existing experience. Keep its visual identity, palette, copy, section order, and layout; make the garden feel gently alive and let each reveal connect to the next as the visitor moves through it.
+
+- **Design variance: 6/10.** Keep the established lavender garden and editorial composition; add motion detail without changing the concept.
+- **Motion intensity: 8/10.** Use a living entrance, slow botanical drift, warm firefly movement, a traveling path glint, and reversible scroll reveals. The deep garden stays calmer.
+- **Visual density: 4/10.** Keep the existing sparse composition and use only a few small ornaments at a time.
+
+### Motion behavior
+
+- The entrance artwork and ambient glow breathe slowly; a handful of fireflies and petals drift at different speeds to suggest foreground and background depth.
+- The path divider carries a soft glint toward the next memory clearing.
+- Content enters as it approaches the viewport and gently recedes when the visitor scrolls away, so the journey responds in both directions. Memory cards reveal with a short stagger.
+- The flower interaction warms the secret clearing and reveals its message. The letter keeps an immediate-read option.
+- Animate transform and opacity, run ambient loops only while their scene is visible, and honor `prefers-reduced-motion`. A local browser bundle in `assets/js/vendor/` avoids a remote runtime dependency.
+
+### Implementation audit
+
+Preserve the existing semantic sections, content placeholders, relative asset URLs, clean-root deployment setup, and touch targets. Motion is progressive enhancement: if the library is unavailable or reduced motion is requested, all content and interactions remain available without animated reveals.

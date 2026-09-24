@@ -1,6 +1,8 @@
 # Enchanted Lavender Garden
 
-A lightweight, static birthday surprise website. It uses local CSS, JavaScript, and a small SVG garden illustration; no build step, external images, remote fonts, audio, or app installation is required. The root URL (`/`) is the clean public URL.
+A lightweight, static birthday surprise website. It uses local CSS, JavaScript, a small SVG garden illustration, and a self-hosted Motion browser bundle; no build step, external images, remote fonts, audio, or app installation is required. The root URL (`/`) is the clean public URL.
+
+The Motion bundle and its license are in `assets/js/vendor/`. The site does not load animation code from a CDN.
 
 ## Personalize the page
 

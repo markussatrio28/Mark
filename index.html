@@ -17,13 +17,18 @@
     <section class="hero" id="entrance" aria-label="Pintu masuk taman rahasia">
       <div class="garden-scene" aria-hidden="true">
         <div class="scene-glow"></div>
-        <img class="scene-art" src="./assets/images/garden-scene.svg" alt="">
+        <div class="scene-art-motion"><img class="scene-art" src="./assets/images/garden-scene.svg" alt=""></div>
         <div class="fireflies">
           <i class="firefly" style="--x:22%;--y:43%;--t:4.6s;--d:-1s"></i><i class="firefly" style="--x:33%;--y:35%;--t:5.4s;--d:-2s"></i>
           <i class="firefly" style="--x:72%;--y:42%;--t:4.9s;--d:-3s"></i><i class="firefly" style="--x:80%;--y:53%;--t:6s;--d:-.5s"></i>
           <i class="firefly" style="--x:42%;--y:57%;--t:5.8s;--d:-2.6s"></i><i class="firefly" style="--x:60%;--y:32%;--t:5s;--d:-1.5s"></i>
           <i class="firefly" style="--x:18%;--y:68%;--t:6.4s;--d:-4s"></i><i class="firefly" style="--x:84%;--y:73%;--t:5.5s;--d:-2s"></i>
         </div>
+        <span class="drifting-petal" style="--x:8%;--y:48%;--size:14px" aria-hidden="true">✿</span>
+        <span class="drifting-petal" style="--x:17%;--y:78%;--size:10px" aria-hidden="true">✾</span>
+        <span class="drifting-petal" style="--x:88%;--y:43%;--size:13px" aria-hidden="true">✿</span>
+        <span class="drifting-petal" style="--x:94%;--y:69%;--size:9px" aria-hidden="true">✾</span>
+        <span class="drifting-petal" style="--x:28%;--y:31%;--size:9px" aria-hidden="true">✿</span>
       </div>
       <nav class="topline" aria-label="Perjalanan taman"><a class="monogram" href="#entrance">✳</a><div class="journey"><em>Garden path</em><span></span><em>01 — 05</em></div></nav>
       <div class="threshold" id="threshold">
@@ -54,7 +59,7 @@
       </div>
     </section>
 
-    <div class="path-divider" aria-hidden="true"></div>
+    <div class="path-divider" aria-hidden="true"><span class="path-light"></span></div>
 
     <section class="section memories" id="memories">
       <div class="content">
@@ -76,6 +81,7 @@
     </section>
 
     <section class="section secret-grove" id="secretGrove">
+      <div class="secret-glow" aria-hidden="true"></div>
       <div class="fireflies" aria-hidden="true"><i class="firefly" style="--x:21%;--y:35%;--t:4.7s"></i><i class="firefly" style="--x:77%;--y:39%;--t:5.3s;--d:-1s"></i><i class="firefly" style="--x:33%;--y:72%;--t:6s;--d:-2s"></i><i class="firefly" style="--x:69%;--y:68%;--t:4.9s;--d:-3s"></i></div>
       <div class="content section-heading arrive">
         <p class="eyebrow">04 · A light between the flowers</p>
@@ -93,6 +99,7 @@
   </main>
   <footer><span>Sebuah taman kecil, dibuat dengan sepenuh hati</span><span>Untukmu, selalu ♡</span></footer>
 
+  <script src="./assets/js/vendor/motion.min.js" defer></script>
   <script src="./assets/js/garden-data.js" defer></script>
   <script src="./assets/js/main.js" defer></script>
 </body>

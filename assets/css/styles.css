@@ -26,18 +26,17 @@
     .garden-scene { position: absolute; inset: 0; z-index: -1; overflow: hidden; isolation: isolate; background: linear-gradient(180deg, #191421 0%, #30213c 34%, #554269 68%, #1b1722 100%); }
     .garden-scene::before { content: ""; position: absolute; z-index: 2; inset: 0; background: linear-gradient(180deg, rgba(17,14,24,.2), transparent 42%, rgba(20,16,25,.08) 72%, rgba(18,15,23,.63)), linear-gradient(90deg, rgba(17,14,24,.28), transparent 23%, transparent 77%, rgba(17,14,24,.28)); pointer-events: none; }
     .garden-scene::after { content: ""; position: absolute; z-index: 1; width: 100%; height: 65%; left: 0; bottom: -1px; opacity: .8; background: linear-gradient(180deg, transparent, rgba(178,140,203,.08) 42%, rgba(14,13,19,.37)); clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%); pointer-events: none; }
-    .scene-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .94; transform-origin: center 54%; animation: garden-drift 34s ease-in-out infinite alternate; will-change: transform; }
-    .scene-glow { position: absolute; width: min(90vw, 880px); aspect-ratio: 1; left: 50%; top: 34%; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle, rgba(219,178,203,.19), rgba(144,105,175,.12) 32%, transparent 70%); filter: blur(18px); animation: garden-glow 19s ease-in-out infinite alternate; will-change: transform, opacity; }
+    .scene-art-motion { position: absolute; inset: -3%; transform-origin: center 54%; will-change: transform; }
+    .scene-art { display: block; width: 100%; height: 100%; object-fit: cover; opacity: .94; }
+    .scene-glow { position: absolute; width: min(90vw, 880px); aspect-ratio: 1; left: 50%; top: 34%; translate: -50% -50%; border-radius: 50%; background: radial-gradient(circle, rgba(219,178,203,.19), rgba(144,105,175,.12) 32%, transparent 70%); filter: blur(18px); will-change: transform, opacity; }
     .fireflies { position: absolute; inset: 0; pointer-events: none; }
-    .firefly { position: absolute; width: var(--s, 4px); height: var(--s, 4px); left: var(--x); top: var(--y); background: #ffe2a5; border-radius: 50%; box-shadow: 0 0 8px 3px rgba(244,197,126,.38), 0 0 22px 8px rgba(221,170,127,.12); opacity: .72; animation: firefly var(--t, 5s) ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
-    @keyframes garden-drift { from { transform: scale(1.035) translate3d(-.25%, .15%, 0); } to { transform: scale(1.075) translate3d(.35%, -.3%, 0); } }
-    @keyframes garden-glow { from { transform: translate3d(-50%, -50%, 0) scale(.94); opacity: .55; } to { transform: translate3d(-48%, -53%, 0) scale(1.08); opacity: .86; } }
-    @keyframes firefly { from { transform: translate3d(0, 5px, 0); opacity: .3; } to { transform: translate3d(5px, -7px, 0); opacity: .9; } }
+    .firefly { position: absolute; width: var(--s, 4px); height: var(--s, 4px); left: var(--x); top: var(--y); background: #ffe2a5; border-radius: 50%; box-shadow: 0 0 8px 3px rgba(244,197,126,.38), 0 0 22px 8px rgba(221,170,127,.12); opacity: .72; will-change: transform, opacity; }
+    .drifting-petal { position: absolute; left: var(--x); top: var(--y); z-index: 3; color: var(--lilac); font-size: var(--size); line-height: 1; opacity: .38; text-shadow: 0 0 14px rgba(208,187,220,.55); pointer-events: none; will-change: transform, opacity; }
 
     .hero { min-height: 720px; height: 100svh; max-height: 1040px; position: relative; display: grid; place-items: center; padding: max(80px, env(safe-area-inset-top)) 22px max(64px, env(safe-area-inset-bottom)); overflow: hidden; isolation: isolate; background: #20182a; }
     @supports not (height: 100svh) { .hero { height: 100vh; } }
     .threshold, .hero-main { grid-area: 1 / 1; width: min(760px, 100%); position: relative; z-index: 3; text-align: center; }
-    .threshold { transition: opacity 1s ease, filter 1s ease, transform 1.2s cubic-bezier(.2,.65,.3,1); }
+    .motion-ready .threshold, .motion-ready .hero-main { transition: none; }
     .threshold h1 { margin: 21px 0 13px; font: 400 clamp(43px, 10vw, 76px)/1.05 var(--serif); letter-spacing: -.035em; }
     .threshold h1 em { color: var(--lilac); }
     .threshold .intro { max-width: 390px; margin: auto; color: #ddd2df; font-size: 13px; line-height: 1.8; }
@@ -45,9 +44,9 @@
     .enter-button:hover { background: rgba(233,201,141,.1); border-color: var(--amber); transform: translateY(-2px); }
     .enter-button:active { background: rgba(233,201,141,.16); border-color: var(--amber); }
     .enter-button .arrow { color: var(--amber); font-size: 15px; }
-    .hero-main { opacity: 0; visibility: hidden; transform: translateY(20px); transition: opacity 1s ease .35s, transform 1s ease .35s, visibility 0s linear 1.4s; }
-    body.entered .threshold { opacity: 0; filter: blur(8px); transform: scale(1.035); pointer-events: none; }
-    body.entered .hero-main { opacity: 1; visibility: visible; transform: none; transition-delay: .3s; }
+    .hero-main { opacity: 0; visibility: hidden; transform: translateY(20px); }
+    body.entered .threshold { pointer-events: none; }
+    body.entered .hero-main { visibility: visible; }
     .hero-main h1 { margin: 18px 0 8px; font: 400 clamp(56px, 13vw, 112px)/.96 var(--serif); letter-spacing: -.045em; }
     .hero-main h1 em { display: block; color: #d8c0e4; font-weight: 400; }
     .hero-main .date { color: #e1d2dc; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; }
@@ -69,8 +68,8 @@
     .section-heading h2 { margin: 19px 0 14px; font: 400 clamp(39px, 7vw, 68px)/1.05 var(--serif); letter-spacing: -.035em; }
     .section-heading h2 em { color: var(--lilac); font-weight: 400; }
     .section-heading p { max-width: 450px; margin: 0; color: var(--mist); font-size: 13px; line-height: 1.9; }
-    .arrive { opacity: 0; transform: translateY(20px); filter: blur(3px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.65,.3,1), filter .8s ease; }
-    .arrive.is-visible { opacity: 1; transform: none; filter: none; }
+    .arrive { opacity: 1; transform: none; }
+    .motion-ready .arrive { opacity: 0; transform: translateY(20px); will-change: transform, opacity; }
 
     .first-memory { min-height: 710px; background: radial-gradient(ellipse at 77% 53%, rgba(124,88,148,.26), transparent 48%), linear-gradient(180deg, #1c1724, #292034 78%, #251c2e); }
     .first-memory::before { content: ""; position: absolute; width: 46vw; height: 65%; right: -10%; bottom: -12%; opacity: .32; background: radial-gradient(ellipse, rgba(166,130,194,.34), transparent 66%); filter: blur(20px); }
@@ -87,7 +86,7 @@
     .photo-caption { position: absolute; z-index: 2; bottom: 28px; left: 26px; right: 26px; color: var(--ivory); font: italic 17px var(--serif); text-shadow: 0 2px 12px rgba(0,0,0,.6); }
     .path-divider { height: 150px; position: relative; overflow: hidden; background: linear-gradient(180deg, #292034, #201a28); }
     .path-divider::before { content: ""; position: absolute; left: 50%; top: -1px; transform: translateX(-50%); width: min(100%, 1050px); height: 100%; background: linear-gradient(180deg, rgba(191,154,213,.12), transparent); clip-path: polygon(49% 0, 51% 0, 86% 100%, 14% 100%); }
-    .path-divider::after { content: ""; position: absolute; width: 3px; height: 40px; left: 50%; top: 42px; background: linear-gradient(var(--amber), transparent); opacity: .65; }
+    .path-light { position: absolute; width: 3px; height: 40px; left: 50%; top: 42px; background: linear-gradient(var(--amber), transparent); opacity: .65; transform-origin: top; will-change: transform, opacity; }
 
     .memories { background: linear-gradient(180deg, #201a28, #292034 50%, #241b2c); }
     .memories .section-heading { margin-bottom: 46px; }
@@ -105,16 +104,15 @@
     .memory-meta .date { white-space: nowrap; }
 
     .secret-grove { background: radial-gradient(ellipse at 50% 32%, rgba(130,96,154,.28), transparent 47%), linear-gradient(180deg, #241b2c, #30243b 48%, #241b2b); text-align: center; padding-top: 100px; padding-bottom: 108px; }
+    .secret-glow { position: absolute; inset: 0; z-index: 0; opacity: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 48%, rgba(233,201,141,.2), rgba(180,139,205,.12) 23%, transparent 62%); will-change: opacity, transform; }
     .secret-grove .section-heading { margin: auto; }
     .secret-grove .section-heading p { margin: auto; }
     .bloom-button { width: 70px; height: 70px; display: grid; place-items: center; margin: 30px auto 0; border: 1px solid rgba(233,201,141,.52); border-radius: 50%; color: var(--lilac); background: rgba(31,24,39,.36); cursor: pointer; font-size: 25px; transition: transform .5s, color .5s, box-shadow .5s; touch-action: manipulation; }
     .bloom-button:hover, .bloom-button:focus-visible { color: var(--amber); transform: scale(1.06); box-shadow: 0 0 34px rgba(233,201,141,.18); }
     .bloom-button:active { color: var(--amber); box-shadow: 0 0 34px rgba(233,201,141,.18); }
     .secret-hint { margin: 14px 0 0; color: rgba(221,210,223,.68); font-size: 10px; letter-spacing: .08em; }
-    .hidden-message { max-height: 0; opacity: 0; overflow: hidden; color: var(--ivory); font: italic clamp(21px, 4vw, 30px)/1.5 var(--serif); transition: max-height .7s ease, opacity .7s ease, margin .7s ease; }
-    .secret-grove.discovered .hidden-message { max-height: 180px; opacity: 1; margin: 25px auto 0; }
-    .secret-grove.discovered { background: radial-gradient(ellipse at 50% 45%, rgba(233,201,141,.17), rgba(150,112,176,.19) 24%, transparent 65%), linear-gradient(180deg, #241b2c, #30243b 48%, #241b2b); }
-    .secret-grove.discovered .firefly { opacity: 1; }
+    .hidden-message { max-height: 0; opacity: 0; overflow: hidden; color: var(--ivory); font: italic clamp(21px, 4vw, 30px)/1.5 var(--serif); transition: max-height .7s ease, margin .7s ease; }
+    .secret-grove.discovered .hidden-message { max-height: 180px; margin: 25px auto 0; }
 
     .letter-section { background: linear-gradient(180deg, #241b2b, #1e1925 90%); }
     .letter-wrap { display: grid; grid-template-columns: .72fr 1.28fr; gap: 9vw; align-items: center; }
@@ -185,5 +183,9 @@
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-      .arrive { opacity: 1; filter: none; transform: none; }
+      .motion-ready .arrive { opacity: 1; transform: none; will-change: auto; }
+      .drifting-petal { display: none; }
+      body.entered .threshold { visibility: hidden; }
+      body.entered .hero-main { opacity: 1; transform: none; visibility: visible; }
+      .secret-grove.discovered .hidden-message { opacity: 1; }
     }
