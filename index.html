@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17121d">
+  <meta name="description" content="Sebuah taman rahasia, dan sebuah kejutan kecil untukmu.">
+  <title>A Secret Garden for You</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="A Secret Garden for You">
+  <meta property="og:description" content="Sebuah taman rahasia, dan sebuah kejutan kecil untukmu.">
+  <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+  <main>
+    <section class="hero" id="entrance" aria-label="Pintu masuk taman rahasia">
+      <div class="garden-scene" aria-hidden="true">
+        <div class="scene-glow"></div>
+        <img class="scene-art" src="./assets/images/garden-scene.svg" alt="">
+        <div class="fireflies">
+          <i class="firefly" style="--x:22%;--y:43%;--t:4.6s;--d:-1s"></i><i class="firefly" style="--x:33%;--y:35%;--t:5.4s;--d:-2s"></i>
+          <i class="firefly" style="--x:72%;--y:42%;--t:4.9s;--d:-3s"></i><i class="firefly" style="--x:80%;--y:53%;--t:6s;--d:-.5s"></i>
+          <i class="firefly" style="--x:42%;--y:57%;--t:5.8s;--d:-2.6s"></i><i class="firefly" style="--x:60%;--y:32%;--t:5s;--d:-1.5s"></i>
+          <i class="firefly" style="--x:18%;--y:68%;--t:6.4s;--d:-4s"></i><i class="firefly" style="--x:84%;--y:73%;--t:5.5s;--d:-2s"></i>
+        </div>
+      </div>
+      <nav class="topline" aria-label="Perjalanan taman"><a class="monogram" href="#entrance">✳</a><div class="journey"><em>Garden path</em><span></span><em>01 — 05</em></div></nav>
+      <div class="threshold" id="threshold">
+        <p class="eyebrow">A quiet little surprise</p>
+        <h1>Come a little<br><em>closer…</em></h1>
+        <p class="intro">Ada taman kecil yang menunggumu di balik senja. Dan sebuah cerita yang hanya ingin kubagikan denganmu.</p>
+        <button class="enter-button" id="enterGarden"><span>Enter the Garden</span><span class="arrow" aria-hidden="true">↗</span></button>
+      </div>
+      <div class="hero-main" id="birthdayHero" aria-live="polite">
+        <p class="eyebrow">Hari ini, taman ini milikmu</p>
+        <h1 tabindex="-1">Happy Birthday<em data-name>[NAME]</em></h1>
+        <div class="date" data-day>[BIRTHDAY_DATE]</div>
+        <p class="hero-copy">Setiap langkah di taman ini menyimpan sedikit cerita. Mari berjalan lebih jauh, pelan-pelan.</p>
+        <a class="down-link" href="#first-memory"><b aria-hidden="true">↓</b> Ikuti jalan setapak</a>
+      </div>
+      <div class="hero-bottom">A secret garden <span>✦</span> made just for you</div>
+    </section>
+
+    <section class="section first-memory" id="first-memory">
+      <div class="content first-layout">
+        <div class="first-copy arrive">
+          <p class="eyebrow">01 · First clearing</p>
+          <div class="section-heading"><h2>Jejak pertama<br>di <em>taman kita.</em></h2><p class="note">Simpan satu momen yang selalu ingin kamu kunjungi lagi. Tambahkan foto, tanggal, dan cerita kecil kalian di sini.</p></div>
+        </div>
+        <figure class="photo-slot photo is-placeholder arrive" data-photo="0">
+          <span class="photo-stamp" data-date>[MEMORY_01]</span><span class="photo-placeholder">[PHOTO_01]</span><figcaption class="photo-caption" data-caption>[MEMORY_CAPTION_01]</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="path-divider" aria-hidden="true"></div>
+
+    <section class="section memories" id="memories">
+      <div class="content">
+        <div class="section-heading arrive"><p class="eyebrow">02 · Along the path</p><h2>Hal-hal kecil<br>yang <em>kusimpan.</em></h2><p>Empat tempat untuk momen yang paling berarti. Biar foto-fotomu yang menceritakan sisanya.</p></div>
+        <div class="memory-layout" id="memoryLayout"></div>
+      </div>
+    </section>
+
+    <section class="section letter-section" id="letter">
+      <div class="content letter-wrap">
+        <div class="letter-side arrive"><p class="eyebrow">03 · A note left for you</p><h2>Surat kecil<br>dari <em>hatiku.</em></h2><p>Istirahat sebentar di sini. Ada kata-kata yang kusimpan khusus untuk hari ini.</p></div>
+        <article class="letter-card arrive" id="letterCard">
+          <p class="eyebrow">Untuk [NAME], dengan cinta</p>
+          <div class="letter-text" id="letterText" hidden>[BIRTHDAY_MESSAGE]</div>
+          <p class="letter-signature" id="letterSign" hidden>Selalu, milikmu ♡</p>
+          <div class="letter-actions"><button class="text-button" id="openLetter" aria-expanded="false">Buka suratnya</button><button class="text-button" id="readNow">Baca langsung</button></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section secret-grove" id="secretGrove">
+      <div class="fireflies" aria-hidden="true"><i class="firefly" style="--x:21%;--y:35%;--t:4.7s"></i><i class="firefly" style="--x:77%;--y:39%;--t:5.3s;--d:-1s"></i><i class="firefly" style="--x:33%;--y:72%;--t:6s;--d:-2s"></i><i class="firefly" style="--x:69%;--y:68%;--t:4.9s;--d:-3s"></i></div>
+      <div class="content section-heading arrive">
+        <p class="eyebrow">04 · A light between the flowers</p>
+        <h2>Ada sesuatu<br>yang <em>tersembunyi.</em></h2>
+        <p>Sentuh bunga kecil ini. Mungkin ada cahaya yang memang menunggumu.</p>
+        <button class="bloom-button" id="findLight" aria-label="Sentuh bunga untuk menemukan pesan rahasia" aria-expanded="false">✿</button>
+        <p class="secret-hint">Temukan cahaya kecil di tengah taman</p>
+        <p class="hidden-message" id="hiddenMessage" aria-live="polite">[HIDDEN_MESSAGE]</p>
+      </div>
+    </section>
+
+    <section class="section finale" id="finale">
+      <div class="content section-heading arrive"><p class="eyebrow">05 · The quiet heart of the garden</p><h2>Sebelum kamu<br><em>pulang…</em></h2><p>[FINAL_MESSAGE]</p><div class="final-heart" aria-hidden="true">✦</div><h2 class="final-name" style="font-size:clamp(34px,6vw,56px);margin-top:22px">Happy Birthday,<br><em data-name>[NAME]</em></h2></div>
+    </section>
+  </main>
+  <footer><span>Sebuah taman kecil, dibuat dengan sepenuh hati</span><span>Untukmu, selalu ♡</span></footer>
+
+  <script src="./assets/js/garden-data.js" defer></script>
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

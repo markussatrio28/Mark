@@ -1,0 +1,61 @@
+<svg class="scene-art" viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#1b1724"/><stop offset=".48" stop-color="#514064"/><stop offset="1" stop-color="#957aa7"/></linearGradient>
+            <linearGradient id="walk" x2="0" y2="1"><stop stop-color="#b39ab9" stop-opacity=".56"/><stop offset=".45" stop-color="#7c6b83" stop-opacity=".72"/><stop offset="1" stop-color="#514956"/></linearGradient>
+            <linearGradient id="trunk" x2="1"><stop stop-color="#17151c"/><stop offset=".5" stop-color="#302533"/><stop offset="1" stop-color="#17151c"/></linearGradient>
+            <radialGradient id="bloom"><stop stop-color="#efd6e8" stop-opacity=".8"/><stop offset="1" stop-color="#aa83bd" stop-opacity="0"/></radialGradient>
+            <filter id="soft"><feGaussianBlur stdDeviation="12"/></filter>
+          </defs>
+          <rect width="1440" height="1000" fill="url(#sky)"/>
+          <ellipse cx="720" cy="525" rx="540" ry="320" fill="#c6a5c7" opacity=".09" filter="url(#soft)"/>
+          <!-- distant canopy -->
+          <g fill="#201a2b" opacity=".92">
+            <circle cx="42" cy="186" r="236"/><circle cx="190" cy="152" r="195"/><circle cx="391" cy="112" r="148"/>
+            <circle cx="1398" cy="160" r="235"/><circle cx="1243" cy="127" r="180"/><circle cx="1061" cy="102" r="145"/>
+            <circle cx="660" cy="92" r="110"/><circle cx="816" cy="76" r="112"/>
+          </g>
+          <!-- tree trunks frame the aisle -->
+          <g fill="url(#trunk)" opacity=".94">
+            <path d="M54 0h105l-8 625H22z"/><path d="M235 0h54l55 576h-39z"/><path d="M417 0h35l16 544h-28z"/>
+            <path d="M1382 0h-105l8 625h129z"/><path d="M1205 0h-54l-55 576h39z"/><path d="M1023 0h-35l-16 544h28z"/>
+          </g>
+          <g stroke="#302331" stroke-width="20" fill="none" opacity=".72">
+            <path d="M84 193Q190 172 245 98T410 33M265 250Q350 210 417 157M1340 200Q1240 165 1190 94T1030 34M1175 249Q1090 205 1022 153"/>
+          </g>
+          <!-- pathway to a small garden bench -->
+          <path d="M653 438L787 438 1180 1000H260z" fill="url(#walk)" opacity=".86"/>
+          <path d="M703 462L737 462 852 1000H588z" fill="#d5bfd4" opacity=".07"/>
+          <g fill="#241b2b" opacity=".92">
+            <path d="M604 376h232v23H604z"/><path d="M621 399h18v50h-18zM801 399h18v50h-18z"/>
+            <path d="M615 377l-23-22 9-10 29 14h180l29-14 9 10-23 22z"/>
+          </g>
+          <g stroke="#957ba3" stroke-width="3" opacity=".58"><path d="M628 385h184M647 379v18M675 379v18M703 379v18M731 379v18M759 379v18M787 379v18"/></g>
+          <!-- lavender bands and flower heads -->
+          <g fill="#523c68" opacity=".93">
+            <path d="M0 410Q170 360 327 434L410 1000H0z"/><path d="M1440 408Q1260 352 1110 430L1030 1000h410z"/>
+            <path d="M0 735Q150 674 318 744L364 1000H0z" fill="#6d4d7d"/><path d="M1440 715Q1275 665 1112 740l-52 260h380z" fill="#704f80"/>
+          </g>
+          <g fill="#b28acb" opacity=".75">
+            <circle cx="105" cy="431" r="16"/><circle cx="156" cy="463" r="12"/><circle cx="228" cy="419" r="18"/><circle cx="306" cy="475" r="14"/>
+            <circle cx="1331" cy="424" r="16"/><circle cx="1277" cy="468" r="12"/><circle cx="1200" cy="417" r="18"/><circle cx="1135" cy="479" r="14"/>
+            <circle cx="44" cy="824" r="24"/><circle cx="154" cy="774" r="19"/><circle cx="278" cy="849" r="25"/><circle cx="1378" cy="816" r="23"/><circle cx="1274" cy="777" r="19"/><circle cx="1153" cy="849" r="26"/>
+            <circle cx="84" cy="183" r="23"/><circle cx="167" cy="221" r="19"/><circle cx="299" cy="151" r="17"/><circle cx="372" cy="195" r="15"/>
+            <circle cx="1351" cy="178" r="22"/><circle cx="1268" cy="219" r="18"/><circle cx="1140" cy="152" r="17"/><circle cx="1069" cy="192" r="14"/>
+          </g>
+          <g fill="#d9bfdf" opacity=".7">
+            <circle cx="216" cy="501" r="8"/><circle cx="263" cy="529" r="7"/><circle cx="1172" cy="511" r="8"/><circle cx="1215" cy="531" r="7"/>
+            <circle cx="81" cy="934" r="11"/><circle cx="191" cy="902" r="9"/><circle cx="1341" cy="935" r="11"/><circle cx="1248" cy="908" r="9"/>
+          </g>
+          <!-- warm lights in the deeper garden -->
+          <g fill="#ffe2a5">
+            <circle cx="454" cy="328" r="3"/><circle cx="529" cy="284" r="2.5"/><circle cx="603" cy="318" r="2"/><circle cx="938" cy="285" r="2.5"/><circle cx="1002" cy="341" r="3"/><circle cx="887" cy="359" r="2"/>
+            <circle cx="384" cy="516" r="2.5"/><circle cx="1055" cy="508" r="3"/><circle cx="489" cy="472" r="2"/><circle cx="949" cy="460" r="2.5"/>
+          </g>
+          <g fill="url(#bloom)"><circle cx="456" cy="328" r="24"/><circle cx="1002" cy="341" r="26"/><circle cx="1055" cy="508" r="22"/><circle cx="529" cy="284" r="19"/></g>
+          <!-- edge blur adds a foreground layer without heavy imagery -->
+          <g fill="#9c79b3" opacity=".56" filter="url(#soft)">
+            <circle cx="-15" cy="684" r="88"/><circle cx="75" cy="572" r="48"/><circle cx="-6" cy="357" r="62"/>
+            <circle cx="1452" cy="692" r="90"/><circle cx="1360" cy="576" r="49"/><circle cx="1449" cy="360" r="62"/>
+          </g>
+          <ellipse cx="720" cy="986" rx="410" ry="34" fill="#c4a2ce" opacity=".12" filter="url(#soft)"/>
+        </svg>

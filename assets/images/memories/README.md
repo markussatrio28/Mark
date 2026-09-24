@@ -1,0 +1,1 @@
+Add your optimized personal photos to this folder, then set each `photo` value in `../js/garden-data.js` to a relative path such as `./assets/images/memories/first-meet.webp`. Keep image files small (prefer WebP or AVIF) for mobile data.
