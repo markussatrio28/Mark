@@ -71,51 +71,112 @@
     }
 
     if (motionReady) {
+      if (typeof motion.scroll === 'function') {
+        const traveler = document.querySelector('.scroll-traveler');
+        let travelerAnimation;
+        let cancelTravelerScroll;
+        const bindTraveler = () => {
+          cancelTravelerScroll?.();
+          travelerAnimation?.stop();
+          const width = window.innerWidth;
+          const height = window.innerHeight;
+          const gutter = width < 760 ? 28 : Math.max(38, width * .055);
+          travelerAnimation = motion.animate(traveler, {
+            x: [gutter, gutter, width - gutter, gutter, width - gutter, gutter, width - gutter],
+            y: [height * .8, height * .7, height * .88, height * .66, height * .86, height * .69, height * .82],
+            rotate: [-18, 8, 24, -14, 17, -22, 12],
+            scale: [.82, 1, .78, 1.08, .82, 1.02, .86],
+            opacity: [.5, .78, .52, .84, .48, .8, .54]
+          }, {
+            duration: 1,
+            ease: 'linear',
+            times: [0, .16, .34, .61, .76, .88, 1]
+          });
+          cancelTravelerScroll = motion.scroll(travelerAnimation, {
+            target: document.querySelector('main'),
+            offset: ['start start', 'end end']
+          });
+        };
+        bindTraveler();
+        window.addEventListener('orientationchange', bindTraveler, { passive: true });
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(bindTraveler, 180);
+        }, { passive: true });
+      }
+
       const gardenScene = document.querySelector('.garden-scene');
       animateWhileVisible(gardenScene, () => {
-        const art = motion.animate(document.querySelector('.scene-art-motion'), { scale: 1.055, x: 5, y: -3 }, {
-          duration: 30, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror'
+        const art = motion.animate(document.querySelector('.scene-art-motion'), {
+          scale: [1.035, 1.09, 1.045], x: [0, 12, -4], y: [0, -9, 4]
+        }, {
+          duration: 17, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror'
         });
-        const glow = motion.animate(document.querySelector('.scene-glow'), { scale: 1.12, opacity: .84 }, {
-          duration: 18, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror'
+        const glow = motion.animate(document.querySelector('.scene-glow'), { scale: [1, 1.2], opacity: [.48, .96] }, {
+          duration: 9.5, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror'
         });
         return [art, glow];
       }, '100px 0px');
 
       document.querySelectorAll('.fireflies').forEach(group => {
         animateWhileVisible(group, () => Array.from(group.querySelectorAll('.firefly'), (dot, index) => motion.animate(dot, {
-          x: index % 2 ? 7 : -6,
-          y: index % 3 ? -9 : 7,
-          opacity: index % 2 ? .92 : .42,
-          scale: index % 2 ? 1.12 : .84
+          x: index % 2 ? 12 : -9,
+          y: index % 3 ? -14 : 10,
+          opacity: index % 2 ? 1 : .34,
+          scale: index % 2 ? 1.3 : .76
         }, {
-          duration: 4.6 + (index % 4) * .85,
-          delay: (index % 3) * .2,
+          duration: 3.4 + (index % 4) * .7,
+          delay: (index % 3) * .16,
           ease: 'easeInOut',
           repeat: Infinity,
           repeatType: 'mirror'
         })));
       });
 
-      const petals = Array.from(document.querySelectorAll('.drifting-petal'));
-      animateWhileVisible(gardenScene, () => petals.map((petal, index) => motion.animate(petal, {
-        x: index % 2 ? 8 : -7,
-        y: index % 2 ? -14 : 11,
-        rotate: index % 2 ? 13 : -11,
-        opacity: index % 2 ? .62 : .28
+      const entranceBlooms = Array.from(document.querySelectorAll('.entrance-bloom'));
+      animateWhileVisible(gardenScene, () => entranceBlooms.map((bloom, index) => motion.animate(bloom, {
+        x: index ? [0, -9, 2] : [0, 8, -2],
+        y: index ? [0, 16, -3] : [0, -18, 3],
+        rotate: index ? [27, 17, 27] : [-20, -8, -20],
+        opacity: index ? [.52, .82, .58] : [.58, .92, .62]
       }, {
-        duration: 11 + index * 1.7,
-        delay: index * .35,
+        duration: 7.5 + index * 1.8,
+        delay: index * .45,
         ease: 'easeInOut',
         repeat: Infinity,
         repeatType: 'mirror'
       })), '100px 0px');
 
-      const pathLight = document.querySelector('.path-light');
-      animateWhileVisible(pathLight, () => [motion.animate(pathLight, {
-        opacity: [.32, .88],
-        scaleY: [.72, 1.16]
-      }, { duration: 2.7, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' })], '10px 0px');
+      document.querySelectorAll('.garden-motif').forEach((motif, index) => {
+        const finalClearing = motif.closest('.finale');
+        animateWhileVisible(motif, () => [motion.animate(motif, {
+          x: index % 2 ? [0, -8, 1] : [0, 9, -1],
+          y: [0, -16, 4],
+          rotate: index % 2 ? [-16, -25, -16] : [18, 29, 18],
+          opacity: finalClearing ? [.24, .38, .28] : [.34, .58, .4]
+        }, {
+          duration: finalClearing ? 13 : 8.5 + (index % 3),
+          delay: index * .12,
+          ease: 'easeInOut',
+          repeat: Infinity,
+          repeatType: 'mirror'
+        })], '80px 0px');
+      });
+
+      document.querySelectorAll('.seam-light').forEach((light, index) => {
+        animateWhileVisible(light, () => [motion.animate(light, {
+          y: [-24, 22],
+          opacity: [.28, .96],
+          scaleY: [.62, 1.16]
+        }, { duration: 2.7, delay: index * .18, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' })], '10px 0px');
+      });
+
+      const pathContinuation = document.querySelector('.path-continuation');
+      animateWhileVisible(pathContinuation, () => [motion.animate(pathContinuation, {
+        opacity: [.4, .78],
+        scaleY: [.98, 1.04]
+      }, { duration: 8, ease: 'easeInOut', repeat: Infinity, repeatType: 'mirror' })], '40px 0px');
 
       const memoryCards = Array.from(document.querySelectorAll('.memory-card'));
       const memoryDelay = typeof motion.stagger === 'function' ? motion.stagger(.09, { startDelay: .02 }) : () => 0;
@@ -126,12 +187,12 @@
         motion.inView(target, element => {
           currentAnimation?.stop();
           currentAnimation = motion.animate(element, { opacity: 1, y: 0 }, {
-            duration: .82, delay, ease: smoothEase
+          duration: .9, delay, ease: smoothEase
           });
           return () => {
             currentAnimation?.stop();
-            currentAnimation = motion.animate(element, { opacity: 0, y: 17 }, {
-              duration: .42, ease: 'easeInOut'
+            currentAnimation = motion.animate(element, { opacity: 0, y: 22 }, {
+              duration: .5, ease: 'easeInOut'
             });
           };
         }, { margin: '-7% 0px -7% 0px', amount: .06 });

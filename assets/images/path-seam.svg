@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 220" preserveAspectRatio="none" fill="none">
+  <defs>
+    <linearGradient id="twilight-path" x1="720" y1="0" x2="720" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c6a5d5" stop-opacity=".02"/>
+      <stop offset=".48" stop-color="#c6a5d5" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#a07eb6" stop-opacity=".02"/>
+    </linearGradient>
+    <linearGradient id="warm-thread" x1="0" y1="0" x2="0" y2="220" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e9c98d" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#e9c98d" stop-opacity=".6"/>
+      <stop offset="1" stop-color="#d0bbdc" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M720-16C661 31 806 48 737 96S669 165 720 236" stroke="url(#twilight-path)" stroke-width="112"/>
+  <path d="M720-16C661 31 806 48 737 96S669 165 720 236" stroke="#c6a5d5" stroke-opacity=".13" stroke-width="20"/>
+  <path d="M720-16C661 31 806 48 737 96S669 165 720 236" stroke="url(#warm-thread)" stroke-width="1.5"/>
+</svg>

@@ -1,28 +1,32 @@
-# Enchanted Lavender Garden
+# Sebuah Rahasia untukmu
 
-A lightweight, static birthday surprise website. It uses local CSS, JavaScript, a small SVG garden illustration, and a self-hosted Motion browser bundle; no build step, external images, remote fonts, audio, or app installation is required. The root URL (`/`) is the clean public URL.
+Kejutan ulang tahun statis dengan gerbang PIN, ucapan berlatar galaksi berbentuk hati, puzzle foto yang membuka surat, gulungan foto kenangan bertema film, dan penutup tiga bunga gerbera. Foto referensi dioptimalkan dan disimpan lokal. Project tidak memerlukan proses build atau font eksternal; URL root (`/`) menjadi alamat bersih saat di-deploy.
 
-The Motion bundle and its license are in `assets/js/vendor/`. The site does not load animation code from a CDN.
+## Mengganti PIN
 
-## Personalize the page
+Ubah nilai `accessPin` dan `puzzleImage` di objek `EXPERIENCE` dalam `assets/js/entrance.js`. PIN ditulis sebagai enam angka tanpa tanda hubung. Saat foto puzzle baru siap, simpan versi WebP di `assets/images/` dan ganti `puzzleImage`. Ubah `[NAME]` serta `[ISI_SURAT]` di `index.html`.
 
-Edit `assets/js/garden-data.js` to replace the name, date, memory captions, letter, hidden message, and final note. Add optimized photos under `assets/images/memories/`, then set the matching `photo` fields to relative paths such as `./assets/images/memories/first-meet.webp`. Use WebP or AVIF where possible and keep each photo reasonably small for mobile connections. The page lazy-loads these photos.
+## Mengganti foto dan teks kenangan
 
-## Deploy to Vercel
+Edit array `memories` di objek `EXPERIENCE` dalam `assets/js/entrance.js`. Untuk tiap frame, isi `image` dengan path relatif seperti `./assets/images/memories/kenangan-01.webp`, lalu ganti `date` dan `story`. Selama `image` kosong, frame menampilkan placeholder `[PHOTO_01]` dan seterusnya. Putar otomatis hanya berjalan setelah tombol **Putar kenangan** ditekan.
 
-1. Push this folder to a Git provider.
-2. Import the repository in Vercel and leave the framework preset as **Other**.
-3. Leave the build command empty and use `.` as the output directory.
-4. Deploy. The site is served at `/`; `vercel.json` enables clean URLs and sets basic response headers.
+Setelah seluruh empat bingkai dilihat, petunjuk **Lanjut scroll** membuka penutup tiga bunga gerbera. Ilustrasi bunga berbentuk SVG di `index.html`, jadi tidak memerlukan asset foto tambahan.
 
-## Deploy to Netlify
+PIN diperiksa di browser untuk menjaga kejutan ringan, bukan untuk melindungi informasi rahasia. Siapa pun yang memeriksa source website dapat melihat kodenya.
 
-1. Push this folder to a Git provider or upload the project folder to Netlify.
-2. Set the publish directory to `.` and leave the build command empty.
-3. Deploy. `netlify.toml` enables pretty URLs and sets cache and response headers.
+## Deploy
 
-## Custom domain
+### Vercel
 
-Connect a domain in the hosting provider's domain settings and apply the DNS records shown there. The project contains no hard-coded hostname, so no code change is needed when the domain changes.
+1. Push folder ini ke Git provider.
+2. Import repository di Vercel dengan framework preset **Other**.
+3. Biarkan build command kosong dan gunakan `.` sebagai output directory.
+4. Deploy. `vercel.json` mengaktifkan clean URLs dan header respons dasar.
 
-The hosting provider supplies HTTPS and the public URL. The project itself does not deploy or register a domain.
+### Netlify
+
+1. Push folder ini ke Git provider atau unggah folder project ke Netlify.
+2. Gunakan `.` sebagai publish directory dan biarkan build command kosong.
+3. Deploy. `netlify.toml` mengaktifkan pretty URLs dan header respons.
+
+Hubungkan custom domain melalui pengaturan domain di penyedia hosting. Project tidak menyimpan hostname tertentu.

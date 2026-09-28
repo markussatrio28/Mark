@@ -26,12 +26,19 @@
     .garden-scene { position: absolute; inset: 0; z-index: -1; overflow: hidden; isolation: isolate; background: linear-gradient(180deg, #191421 0%, #30213c 34%, #554269 68%, #1b1722 100%); }
     .garden-scene::before { content: ""; position: absolute; z-index: 2; inset: 0; background: linear-gradient(180deg, rgba(17,14,24,.2), transparent 42%, rgba(20,16,25,.08) 72%, rgba(18,15,23,.63)), linear-gradient(90deg, rgba(17,14,24,.28), transparent 23%, transparent 77%, rgba(17,14,24,.28)); pointer-events: none; }
     .garden-scene::after { content: ""; position: absolute; z-index: 1; width: 100%; height: 65%; left: 0; bottom: -1px; opacity: .8; background: linear-gradient(180deg, transparent, rgba(178,140,203,.08) 42%, rgba(14,13,19,.37)); clip-path: polygon(44% 0, 56% 0, 100% 100%, 0 100%); pointer-events: none; }
-    .scene-art-motion { position: absolute; inset: -3%; transform-origin: center 54%; will-change: transform; }
+    .scene-art-motion { position: absolute; inset: -5%; transform-origin: center 54%; will-change: transform; }
     .scene-art { display: block; width: 100%; height: 100%; object-fit: cover; opacity: .94; }
-    .scene-glow { position: absolute; width: min(90vw, 880px); aspect-ratio: 1; left: 50%; top: 34%; translate: -50% -50%; border-radius: 50%; background: radial-gradient(circle, rgba(219,178,203,.19), rgba(144,105,175,.12) 32%, transparent 70%); filter: blur(18px); will-change: transform, opacity; }
+    .scene-glow { position: absolute; width: min(90vw, 880px); aspect-ratio: 1; left: 50%; top: 34%; translate: -50% -50%; border-radius: 50%; background: radial-gradient(circle, rgba(219,178,203,.25), rgba(144,105,175,.16) 32%, transparent 70%); filter: blur(18px); will-change: transform, opacity; }
     .fireflies { position: absolute; inset: 0; pointer-events: none; }
-    .firefly { position: absolute; width: var(--s, 4px); height: var(--s, 4px); left: var(--x); top: var(--y); background: #ffe2a5; border-radius: 50%; box-shadow: 0 0 8px 3px rgba(244,197,126,.38), 0 0 22px 8px rgba(221,170,127,.12); opacity: .72; will-change: transform, opacity; }
-    .drifting-petal { position: absolute; left: var(--x); top: var(--y); z-index: 3; color: var(--lilac); font-size: var(--size); line-height: 1; opacity: .38; text-shadow: 0 0 14px rgba(208,187,220,.55); pointer-events: none; will-change: transform, opacity; }
+    .firefly { position: absolute; width: var(--s, 4px); height: var(--s, 4px); left: var(--x); top: var(--y); background: #ffe2a5; border-radius: 50%; box-shadow: 0 0 8px 3px rgba(244,197,126,.48), 0 0 22px 8px rgba(221,170,127,.2); opacity: .72; will-change: transform, opacity; }
+    .botanical-drift { position: absolute; z-index: 3; width: clamp(86px, 13vw, 160px); height: auto; opacity: .72; filter: drop-shadow(0 0 14px rgba(202,164,218,.32)); pointer-events: none; will-change: transform, opacity; }
+    .entrance-bloom-left { left: 2%; bottom: 12%; }
+    .entrance-bloom-right { right: 1%; top: 12%; width: clamp(78px, 11vw, 138px); opacity: .66; }
+    .garden-motif { position: absolute; z-index: 0; width: clamp(110px, 17vw, 220px); height: auto; opacity: .42; pointer-events: none; will-change: transform, opacity; }
+    .motif-left { left: max(-28px, 1.5vw); top: 16%; }
+    .motif-right { right: max(-24px, 2vw); bottom: 9%; }
+    .scroll-traveler { position: fixed; z-index: 5; top: 0; left: 0; width: clamp(42px, 5vw, 72px); height: auto; opacity: 0; translate: -50% -50%; pointer-events: none; filter: drop-shadow(0 0 12px rgba(202,164,218,.48)); will-change: transform, opacity; }
+    .scroll-traveler img { display: block; width: 100%; height: auto; }
 
     .hero { min-height: 720px; height: 100svh; max-height: 1040px; position: relative; display: grid; place-items: center; padding: max(80px, env(safe-area-inset-top)) 22px max(64px, env(safe-area-inset-bottom)); overflow: hidden; isolation: isolate; background: #20182a; }
     @supports not (height: 100svh) { .hero { height: 100vh; } }
@@ -69,10 +76,11 @@
     .section-heading h2 em { color: var(--lilac); font-weight: 400; }
     .section-heading p { max-width: 450px; margin: 0; color: var(--mist); font-size: 13px; line-height: 1.9; }
     .arrive { opacity: 1; transform: none; }
-    .motion-ready .arrive { opacity: 0; transform: translateY(20px); will-change: transform, opacity; }
+    .motion-ready .arrive { opacity: 0; transform: translateY(26px); will-change: transform, opacity; }
 
-    .first-memory { min-height: 710px; background: radial-gradient(ellipse at 77% 53%, rgba(124,88,148,.26), transparent 48%), linear-gradient(180deg, #1c1724, #292034 78%, #251c2e); }
+    .first-memory { min-height: 710px; background: radial-gradient(ellipse at 77% 53%, rgba(124,88,148,.26), transparent 48%), linear-gradient(180deg, #211a29 0%, #292034 22%, #292034 76%, #211a29 100%); }
     .first-memory::before { content: ""; position: absolute; width: 46vw; height: 65%; right: -10%; bottom: -12%; opacity: .32; background: radial-gradient(ellipse, rgba(166,130,194,.34), transparent 66%); filter: blur(20px); }
+    .path-continuation { position: absolute; z-index: 0; top: -1px; left: 50%; width: min(100%, 1200px); height: 340px; translate: -50% 0; opacity: .58; background: linear-gradient(180deg, rgba(193,157,212,.2), rgba(117,83,141,.11) 32%, transparent 88%); clip-path: polygon(22% 0, 78% 0, 100% 100%, 0 100%); -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.65) 46%, transparent 100%); mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.65) 46%, transparent 100%); pointer-events: none; will-change: transform, opacity; }
     .first-layout { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(32px, 8vw, 112px); align-items: center; }
     .first-copy { padding: 30px 0; }
     .first-copy .note { max-width: 385px; color: var(--mist); font-size: 13px; line-height: 1.9; }
@@ -84,11 +92,11 @@
     .photo-placeholder { position: relative; z-index: 2; color: rgba(244,237,229,.9); font-size: 11px; letter-spacing: .18em; text-transform: uppercase; text-align: center; }
     .photo-stamp { position: absolute; right: 24px; top: 24px; z-index: 2; color: var(--amber); font: italic 14px var(--serif); }
     .photo-caption { position: absolute; z-index: 2; bottom: 28px; left: 26px; right: 26px; color: var(--ivory); font: italic 17px var(--serif); text-shadow: 0 2px 12px rgba(0,0,0,.6); }
-    .path-divider { height: 150px; position: relative; overflow: hidden; background: linear-gradient(180deg, #292034, #201a28); }
-    .path-divider::before { content: ""; position: absolute; left: 50%; top: -1px; transform: translateX(-50%); width: min(100%, 1050px); height: 100%; background: linear-gradient(180deg, rgba(191,154,213,.12), transparent); clip-path: polygon(49% 0, 51% 0, 86% 100%, 14% 100%); }
-    .path-light { position: absolute; width: 3px; height: 40px; left: 50%; top: 42px; background: linear-gradient(var(--amber), transparent); opacity: .65; transform-origin: top; will-change: transform, opacity; }
+    .scene-seam { height: 180px; position: relative; z-index: 2; overflow: hidden; margin: -88px 0; pointer-events: none; background: url("../images/path-seam.svg") center / 100% 100% no-repeat; }
+    .scene-seam::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(33,26,41,.74), transparent 22%, transparent 78%, rgba(33,26,41,.74)), linear-gradient(180deg, rgba(33,26,41,.2), rgba(33,26,41,.04) 50%, rgba(33,26,41,.2)); }
+    .seam-light { position: absolute; left: calc(50% - 1px); top: 16%; width: 2px; height: 68%; transform-origin: top; background: linear-gradient(180deg, transparent, rgba(233,201,141,.88) 23%, rgba(216,192,228,.54) 76%, transparent); filter: drop-shadow(0 0 8px rgba(233,201,141,.56)); opacity: .7; will-change: transform, opacity; }
 
-    .memories { background: linear-gradient(180deg, #201a28, #292034 50%, #241b2c); }
+    .memories { background: linear-gradient(180deg, #211a29 0%, #292034 22%, #292034 78%, #211a29 100%); }
     .memories .section-heading { margin-bottom: 46px; }
     .memory-layout { display: grid; grid-template-columns: 1.04fr .96fr; gap: 26px; align-items: start; }
     .memory-layout .memory-card:first-child { grid-row: span 2; margin-top: 44px; }
@@ -103,7 +111,7 @@
     .memory-meta .caption { color: var(--ivory); font: italic 18px var(--serif); letter-spacing: 0; text-transform: none; }
     .memory-meta .date { white-space: nowrap; }
 
-    .secret-grove { background: radial-gradient(ellipse at 50% 32%, rgba(130,96,154,.28), transparent 47%), linear-gradient(180deg, #241b2c, #30243b 48%, #241b2b); text-align: center; padding-top: 100px; padding-bottom: 108px; }
+    .secret-grove { background: radial-gradient(ellipse at 50% 32%, rgba(130,96,154,.28), transparent 47%), linear-gradient(180deg, #211a29 0%, #30243b 22%, #30243b 78%, #211a29 100%); text-align: center; padding-top: 100px; padding-bottom: 108px; }
     .secret-glow { position: absolute; inset: 0; z-index: 0; opacity: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 48%, rgba(233,201,141,.2), rgba(180,139,205,.12) 23%, transparent 62%); will-change: opacity, transform; }
     .secret-grove .section-heading { margin: auto; }
     .secret-grove .section-heading p { margin: auto; }
@@ -114,7 +122,7 @@
     .hidden-message { max-height: 0; opacity: 0; overflow: hidden; color: var(--ivory); font: italic clamp(21px, 4vw, 30px)/1.5 var(--serif); transition: max-height .7s ease, margin .7s ease; }
     .secret-grove.discovered .hidden-message { max-height: 180px; margin: 25px auto 0; }
 
-    .letter-section { background: linear-gradient(180deg, #241b2b, #1e1925 90%); }
+    .letter-section { background: linear-gradient(180deg, #211a29 0%, #241b2b 18%, #1e1925 80%, #211a29 100%); }
     .letter-wrap { display: grid; grid-template-columns: .72fr 1.28fr; gap: 9vw; align-items: center; }
     .letter-side h2 { margin: 20px 0; font: 400 clamp(40px, 6vw, 62px)/1.08 var(--serif); }
     .letter-side h2 em { color: var(--lilac); }
@@ -127,7 +135,7 @@
     .letter-actions { display: flex; gap: 18px; margin-top: 25px; position: relative; }
     .text-button { min-height: 44px; padding: 0; border: 0; border-bottom: 1px solid rgba(91,66,105,.42); color: #614b6d; background: transparent; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; touch-action: manipulation; }
 
-    .finale { min-height: 640px; display: grid; place-items: center; text-align: center; isolation: isolate; background: linear-gradient(180deg, #1e1925, #21182b 50%, #17131d); }
+    .finale { min-height: 640px; display: grid; place-items: center; text-align: center; isolation: isolate; background: linear-gradient(180deg, #211a29 0%, #21182b 34%, #17131d 100%); }
     .finale::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse at 50% 58%, rgba(202,164,218,.18), transparent 53%); }
     .finale .section-heading { max-width: 720px; }
     .finale h2 { font: 400 clamp(49px, 9vw, 90px)/1.04 var(--serif); margin: 20px 0 18px; }
@@ -149,13 +157,20 @@
       .journey span { width: 13px; }
       .hero-main .date { font-size: 10px; }
       .hero-main .hero-copy { max-width: 315px; }
+      .entrance-bloom-left { width: 86px; left: -8px; bottom: 10%; }
+      .entrance-bloom-right { width: 78px; right: -10px; top: 14%; }
+      .garden-motif { width: 112px; opacity: .3; }
+      .scroll-traveler { width: 44px; filter: drop-shadow(0 0 8px rgba(202,164,218,.42)); }
+      .motif-left { left: -28px; top: 10%; }
+      .motif-right { right: -26px; bottom: 6%; }
       .section { padding-top: 82px; padding-bottom: 82px; }
       .first-memory { min-height: auto; }
       .first-layout { grid-template-columns: 1fr; gap: 20px; }
       .first-copy { padding: 0; }
       .photo { min-height: 330px; }
       .photo img { min-height: 308px; }
-      .path-divider { height: 96px; }
+      .scene-seam { height: 132px; margin: -62px 0; }
+      .path-continuation { height: 250px; }
       .memories .section-heading { margin-bottom: 32px; }
       .memory-layout { display: flex; flex-direction: column; gap: 34px; }
       .memory-layout .memory-card:first-child { margin: 0; width: 94%; }
@@ -184,7 +199,9 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
       .motion-ready .arrive { opacity: 1; transform: none; will-change: auto; }
-      .drifting-petal { display: none; }
+      .botanical-drift, .garden-motif { will-change: auto; }
+      .seam-light, .path-continuation { will-change: auto; }
+      .scroll-traveler { display: none; }
       body.entered .threshold { visibility: hidden; }
       body.entered .hero-main { opacity: 1; transform: none; visibility: visible; }
       .secret-grove.discovered .hidden-message { opacity: 1; }

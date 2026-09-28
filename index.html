@@ -1,106 +1,311 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#17121d">
-  <meta name="description" content="Sebuah taman rahasia, dan sebuah kejutan kecil untukmu.">
-  <title>A Secret Garden for You</title>
+  <meta name="theme-color" content="#090718">
+  <meta name="description" content="Sebuah kejutan kecil menunggu di balik bunga." />
   <meta property="og:type" content="website">
-  <meta property="og:title" content="A Secret Garden for You">
-  <meta property="og:description" content="Sebuah taman rahasia, dan sebuah kejutan kecil untukmu.">
+  <meta property="og:title" content="Happy Birthday, [NAME]">
+  <meta property="og:description" content="Sebuah kejutan kecil menunggu di balik bunga.">
+  <title>Sebuah Rahasia untukmu</title>
   <link rel="icon" type="image/svg+xml" href="./assets/images/favicon.svg">
-  <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="preload" href="./assets/images/opening-canopy.webp" as="image" type="image/webp">
+  <link rel="preload" href="./assets/images/cosmic-heart.webp" as="image" type="image/webp" fetchpriority="low">
+  <link rel="stylesheet" href="./assets/css/entrance.css?v=20260928-11">
+  <script src="./assets/js/entrance.js?v=20260928-11" defer></script>
 </head>
 <body>
-  <main>
-    <section class="hero" id="entrance" aria-label="Pintu masuk taman rahasia">
-      <div class="garden-scene" aria-hidden="true">
-        <div class="scene-glow"></div>
-        <div class="scene-art-motion"><img class="scene-art" src="./assets/images/garden-scene.svg" alt=""></div>
-        <div class="fireflies">
-          <i class="firefly" style="--x:22%;--y:43%;--t:4.6s;--d:-1s"></i><i class="firefly" style="--x:33%;--y:35%;--t:5.4s;--d:-2s"></i>
-          <i class="firefly" style="--x:72%;--y:42%;--t:4.9s;--d:-3s"></i><i class="firefly" style="--x:80%;--y:53%;--t:6s;--d:-.5s"></i>
-          <i class="firefly" style="--x:42%;--y:57%;--t:5.8s;--d:-2.6s"></i><i class="firefly" style="--x:60%;--y:32%;--t:5s;--d:-1.5s"></i>
-          <i class="firefly" style="--x:18%;--y:68%;--t:6.4s;--d:-4s"></i><i class="firefly" style="--x:84%;--y:73%;--t:5.5s;--d:-2s"></i>
+  <div class="cosmic-journey-backdrop" id="cosmicJourneyBackdrop" aria-hidden="true"></div>
+  <main class="opening" id="opening">
+    <div class="garden-art" aria-hidden="true">
+      <img class="blossoms" src="./assets/images/opening-canopy.webp" alt="" fetchpriority="high" decoding="async">
+      <div class="night-haze"></div>
+      <div class="falling-petals">
+        <i class="petal petal-one"></i><i class="petal petal-two"></i>
+        <i class="petal petal-three"></i><i class="petal petal-four"></i>
+        <i class="petal petal-five"></i><i class="petal petal-six"></i>
+        <i class="petal petal-seven"></i><i class="petal petal-eight"></i>
+        <i class="petal petal-nine"></i><i class="petal petal-ten"></i>
+        <i class="petal petal-eleven"></i><i class="petal petal-twelve"></i>
+      </div>
+      <i class="glimmer glimmer-one"></i><i class="glimmer glimmer-two"></i>
+      <i class="glimmer glimmer-three"></i>
+    </div>
+
+    <div class="door-transition" aria-hidden="true">
+      <div class="door-portal">
+        <div class="portal-light"></div>
+        <div class="portal-door portal-door-left"><span class="door-inset"></span><i class="door-handle"></i></div>
+        <div class="portal-door portal-door-right"><span class="door-inset"></span><i class="door-handle"></i></div>
+        <span class="portal-spark">✦</span>
+      </div>
+    </div>
+
+    <div class="opening-frame">
+      <header class="opening-mark">
+        <span class="mark-flower" aria-hidden="true">✳</span>
+        <span>SEBUAH RAHASIA KECIL</span>
+      </header>
+
+      <section class="lock-card" aria-labelledby="opening-title">
+        <span class="door-hinge hinge-left-one" aria-hidden="true"></span>
+        <span class="door-hinge hinge-left-two" aria-hidden="true"></span>
+        <span class="door-hinge hinge-right-one" aria-hidden="true"></span>
+        <span class="door-hinge hinge-right-two" aria-hidden="true"></span>
+        <div class="lock-emblem" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path class="lock-shackle" d="M15 20v-5a9 9 0 0 1 18 0v5" />
+            <rect class="lock-body" x="10" y="20" width="28" height="22" rx="3" />
+            <circle cx="24" cy="30" r="2.5" />
+            <path d="M24 32.5v4" />
+          </svg>
         </div>
-        <span class="drifting-petal" style="--x:8%;--y:48%;--size:14px" aria-hidden="true">✿</span>
-        <span class="drifting-petal" style="--x:17%;--y:78%;--size:10px" aria-hidden="true">✾</span>
-        <span class="drifting-petal" style="--x:88%;--y:43%;--size:13px" aria-hidden="true">✿</span>
-        <span class="drifting-petal" style="--x:94%;--y:69%;--size:9px" aria-hidden="true">✾</span>
-        <span class="drifting-petal" style="--x:28%;--y:31%;--size:9px" aria-hidden="true">✿</span>
-      </div>
-      <nav class="topline" aria-label="Perjalanan taman"><a class="monogram" href="#entrance">✳</a><div class="journey"><em>Garden path</em><span></span><em>01 — 05</em></div></nav>
-      <div class="threshold" id="threshold">
-        <p class="eyebrow">A quiet little surprise</p>
-        <h1>Come a little<br><em>closer…</em></h1>
-        <p class="intro">Ada taman kecil yang menunggumu di balik senja. Dan sebuah cerita yang hanya ingin kubagikan denganmu.</p>
-        <button class="enter-button" id="enterGarden"><span>Enter the Garden</span><span class="arrow" aria-hidden="true">↗</span></button>
-      </div>
-      <div class="hero-main" id="birthdayHero" aria-live="polite">
-        <p class="eyebrow">Hari ini, taman ini milikmu</p>
-        <h1 tabindex="-1">Happy Birthday<em data-name>[NAME]</em></h1>
-        <div class="date" data-day>[BIRTHDAY_DATE]</div>
-        <p class="hero-copy">Setiap langkah di taman ini menyimpan sedikit cerita. Mari berjalan lebih jauh, pelan-pelan.</p>
-        <a class="down-link" href="#first-memory"><b aria-hidden="true">↓</b> Ikuti jalan setapak</a>
-      </div>
-      <div class="hero-bottom">A secret garden <span>✦</span> made just for you</div>
-    </section>
+        <p class="eyebrow">Hanya untukmu</p>
+        <h1 id="opening-title">Ada yang<br><em>menunggumu.</em></h1>
+        <p class="prompt">Masukkan tanggal yang menyimpan cerita kita.</p>
 
-    <section class="section first-memory" id="first-memory">
-      <div class="content first-layout">
-        <div class="first-copy arrive">
-          <p class="eyebrow">01 · First clearing</p>
-          <div class="section-heading"><h2>Jejak pertama<br>di <em>taman kita.</em></h2><p class="note">Simpan satu momen yang selalu ingin kamu kunjungi lagi. Tambahkan foto, tanggal, dan cerita kecil kalian di sini.</p></div>
+        <div class="pin-display" id="pinDisplay" aria-label="PIN kosong" aria-live="polite">
+          <span class="pin-group"><i></i><i></i></span>
+          <b aria-hidden="true">—</b>
+          <span class="pin-group"><i></i><i></i></span>
+          <b aria-hidden="true">—</b>
+          <span class="pin-group"><i></i><i></i></span>
         </div>
-        <figure class="photo-slot photo is-placeholder arrive" data-photo="0">
-          <span class="photo-stamp" data-date>[MEMORY_01]</span><span class="photo-placeholder">[PHOTO_01]</span><figcaption class="photo-caption" data-caption>[MEMORY_CAPTION_01]</figcaption>
-        </figure>
+        <p class="pin-hint" id="pinStatus" role="status">6 angka · format tanggal</p>
+
+        <div class="keypad" role="group" aria-label="Keypad PIN">
+          <button type="button" class="key" data-digit="1" aria-label="Angka 1">1</button>
+          <button type="button" class="key" data-digit="2" aria-label="Angka 2">2</button>
+          <button type="button" class="key" data-digit="3" aria-label="Angka 3">3</button>
+          <button type="button" class="key" data-digit="4" aria-label="Angka 4">4</button>
+          <button type="button" class="key" data-digit="5" aria-label="Angka 5">5</button>
+          <button type="button" class="key" data-digit="6" aria-label="Angka 6">6</button>
+          <button type="button" class="key" data-digit="7" aria-label="Angka 7">7</button>
+          <button type="button" class="key" data-digit="8" aria-label="Angka 8">8</button>
+          <button type="button" class="key" data-digit="9" aria-label="Angka 9">9</button>
+          <button type="button" class="key key-utility" data-action="clear" aria-label="Hapus semua angka">Hapus</button>
+          <button type="button" class="key" data-digit="0" aria-label="Angka 0">0</button>
+          <button type="button" class="key key-utility" data-action="backspace" aria-label="Hapus angka terakhir">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5 3 12l6 7h12V5H9Z"/><path d="m13 9 5 6m0-6-5 6"/></svg>
+          </button>
+        </div>
+
+        <div class="unlock-note" id="unlockNote" hidden>
+          <span class="unlock-star" aria-hidden="true">✦</span>
+          <span>Kuncinya terbuka.</span>
+        </div>
+      </section>
+
+      <footer class="opening-footer">
+        <span class="footer-line"></span>
+        <span>DIBUAT DENGAN HANGAT</span>
+        <span class="footer-spark" aria-hidden="true">✦</span>
+        <span>UNTUKMU</span>
+        <span class="footer-line"></span>
+      </footer>
+    </div>
+
+    <section class="birthday-reveal" id="birthdayReveal" aria-labelledby="birthdayTitle" hidden>
+      <img class="cosmic-backdrop" src="./assets/images/cosmic-heart.webp" alt="" decoding="async">
+      <div class="cosmic-shade" aria-hidden="true"></div>
+
+      <div class="birthday-content">
+        <p class="birthday-eyebrow"><span>✦</span> HARI INI PUNYA KAMU <span>✦</span></p>
+        <h2 class="birthday-title" id="birthdayTitle" tabindex="-1">Happy Birthday<em>[NAME]</em></h2>
+
+        <div class="heart-stage" role="img" aria-label="Hati galaksi tiga dimensi yang berkilau dan bergerak perlahan">
+          <div class="heart-aura"></div>
+          <div class="heart-orbit orbit-one" aria-hidden="true">
+            <i></i><span class="orbit-star orbit-star-a">✦</span><span class="orbit-star orbit-star-b">✧</span>
+          </div>
+          <div class="heart-orbit orbit-two" aria-hidden="true">
+            <i></i><span class="orbit-star orbit-star-c">✧</span><span class="orbit-star orbit-star-d">✦</span>
+          </div>
+          <div class="heart-star-orbit star-trail-one" aria-hidden="true">
+            <span class="travelling-star star-trail-a">✦</span><span class="travelling-star star-trail-b">✧</span>
+          </div>
+          <div class="heart-star-orbit star-trail-two" aria-hidden="true">
+            <span class="travelling-star star-trail-c">✧</span><span class="travelling-star star-trail-d">✦</span>
+          </div>
+          <div class="morph-puzzle" id="morphPuzzle" aria-hidden="true"></div>
+          <div class="heart-3d">
+            <svg class="heart-art" viewBox="0 0 400 380" aria-hidden="true">
+              <defs>
+                <path id="heartShape" d="M200 350C165 316 38 226 38 132 38 76 78 39 132 39c31 0 55 14 68 42 14-28 39-42 69-42 54 0 93 37 93 93 0 94-126 184-162 218Z"/>
+                <clipPath id="heartClip"><use href="#heartShape"/></clipPath>
+                <radialGradient id="heartFill" cx="49%" cy="44%" r="69%">
+                  <stop offset="0" stop-color="#ffe4b0"/>
+                  <stop offset=".19" stop-color="#d9a9fb"/>
+                  <stop offset=".48" stop-color="#8177e8"/>
+                  <stop offset=".78" stop-color="#383a9a"/>
+                  <stop offset="1" stop-color="#161d4d"/>
+                </radialGradient>
+                <radialGradient id="heartCore" cx="50%" cy="50%" r="50%">
+                  <stop stop-color="#fff6da" stop-opacity="1"/>
+                  <stop offset=".2" stop-color="#ffd18e" stop-opacity=".9"/>
+                  <stop offset="1" stop-color="#fcb66e" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="heartEdge" x1="55" y1="75" x2="330" y2="315" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#b2dcff"/>
+                  <stop offset=".5" stop-color="#c18cff"/>
+                  <stop offset="1" stop-color="#ffe0a1"/>
+                </linearGradient>
+                <linearGradient id="spiralStroke" x1="97" y1="109" x2="300" y2="280" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#c8e9ff" stop-opacity=".1"/>
+                  <stop offset=".45" stop-color="#fff0cf" stop-opacity=".95"/>
+                  <stop offset="1" stop-color="#a6a9ff" stop-opacity=".25"/>
+                </linearGradient>
+                <filter id="heartGlow" x="-45%" y="-35%" width="190%" height="190%">
+                  <feGaussianBlur stdDeviation="12" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+
+              <use class="heart-shadow" href="#heartShape" transform="translate(0 19)"/>
+              <use class="heart-side" href="#heartShape" transform="translate(0 10)"/>
+              <use class="heart-front" href="#heartShape"/>
+              <g clip-path="url(#heartClip)">
+                <ellipse cx="132" cy="187" rx="116" ry="138" fill="#a7b9ff" opacity=".15"/>
+                <ellipse cx="286" cy="184" rx="91" ry="118" fill="#da79ff" opacity=".17"/>
+                <image href="./assets/images/cosmic-heart.webp" x="38" y="39" width="324" height="311" preserveAspectRatio="xMidYMid slice" opacity=".76"/>
+                <path d="M57 185c26-91 162-123 247-66 71 48 57 150-12 199-56 39-133 15-139-39-6-49 41-76 80-59 37 16 33 63 6 73-19 7-37-6-31-23" fill="none" stroke="url(#spiralStroke)" stroke-width="8" opacity=".34"/>
+                <path d="M69 183c40-63 109-92 176-82 50 8 87 43 99 83" fill="none" stroke="#d6efff" stroke-width="2" opacity=".28"/>
+                <circle cx="201" cy="189" r="40" fill="url(#heartCore)" filter="url(#heartGlow)"/>
+                <circle cx="201" cy="189" r="5.5" fill="#fff5d8"/>
+                <g fill="#fff3d7">
+                  <circle cx="103" cy="133" r="3.1"/><circle cx="129" cy="101" r="1.8"/><circle cx="161" cy="123" r="2.2"/>
+                  <circle cx="242" cy="105" r="2.7"/><circle cx="278" cy="130" r="1.8"/><circle cx="316" cy="162" r="3.2"/>
+                  <circle cx="94" cy="219" r="2.4"/><circle cx="128" cy="268" r="3"/><circle cx="161" cy="300" r="1.8"/>
+                  <circle cx="246" cy="278" r="2.2"/><circle cx="286" cy="246" r="3.2"/><circle cx="328" cy="209" r="1.6"/>
+                  <circle cx="222" cy="151" r="1.4"/><circle cx="176" cy="234" r="1.8"/><circle cx="255" cy="218" r="1.5"/>
+                </g>
+                <g fill="#bddfff" opacity=".9">
+                  <circle cx="77" cy="159" r="1.5"/><circle cx="145" cy="154" r="1.1"/><circle cx="301" cy="102" r="1.4"/>
+                  <circle cx="341" cy="180" r="1.3"/><circle cx="110" cy="248" r="1.2"/><circle cx="213" cy="318" r="1.4"/>
+                  <circle cx="275" cy="293" r="1.1"/><circle cx="322" cy="267" r="1.3"/>
+                </g>
+              </g>
+              <use class="heart-rim" href="#heartShape"/>
+              <path class="heart-highlight" d="M75 128c7-39 39-66 80-66"/>
+            </svg>
+          </div>
+        </div>
+
+        <p class="birthday-wish">Semoga hal-hal baik selalu menemukan jalan pulang kepadamu.</p>
+        <p class="birthday-signoff">SEBUAH SEMESTA KECIL, UNTUKMU</p>
       </div>
-    </section>
-
-    <div class="path-divider" aria-hidden="true"><span class="path-light"></span></div>
-
-    <section class="section memories" id="memories">
-      <div class="content">
-        <div class="section-heading arrive"><p class="eyebrow">02 · Along the path</p><h2>Hal-hal kecil<br>yang <em>kusimpan.</em></h2><p>Empat tempat untuk momen yang paling berarti. Biar foto-fotomu yang menceritakan sisanya.</p></div>
-        <div class="memory-layout" id="memoryLayout"></div>
-      </div>
-    </section>
-
-    <section class="section letter-section" id="letter">
-      <div class="content letter-wrap">
-        <div class="letter-side arrive"><p class="eyebrow">03 · A note left for you</p><h2>Surat kecil<br>dari <em>hatiku.</em></h2><p>Istirahat sebentar di sini. Ada kata-kata yang kusimpan khusus untuk hari ini.</p></div>
-        <article class="letter-card arrive" id="letterCard">
-          <p class="eyebrow">Untuk [NAME], dengan cinta</p>
-          <div class="letter-text" id="letterText" hidden>[BIRTHDAY_MESSAGE]</div>
-          <p class="letter-signature" id="letterSign" hidden>Selalu, milikmu ♡</p>
-          <div class="letter-actions"><button class="text-button" id="openLetter" aria-expanded="false">Buka suratnya</button><button class="text-button" id="readNow">Baca langsung</button></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section secret-grove" id="secretGrove">
-      <div class="secret-glow" aria-hidden="true"></div>
-      <div class="fireflies" aria-hidden="true"><i class="firefly" style="--x:21%;--y:35%;--t:4.7s"></i><i class="firefly" style="--x:77%;--y:39%;--t:5.3s;--d:-1s"></i><i class="firefly" style="--x:33%;--y:72%;--t:6s;--d:-2s"></i><i class="firefly" style="--x:69%;--y:68%;--t:4.9s;--d:-3s"></i></div>
-      <div class="content section-heading arrive">
-        <p class="eyebrow">04 · A light between the flowers</p>
-        <h2>Ada sesuatu<br>yang <em>tersembunyi.</em></h2>
-        <p>Sentuh bunga kecil ini. Mungkin ada cahaya yang memang menunggumu.</p>
-        <button class="bloom-button" id="findLight" aria-label="Sentuh bunga untuk menemukan pesan rahasia" aria-expanded="false">✿</button>
-        <p class="secret-hint">Temukan cahaya kecil di tengah taman</p>
-        <p class="hidden-message" id="hiddenMessage" aria-live="polite">[HIDDEN_MESSAGE]</p>
-      </div>
-    </section>
-
-    <section class="section finale" id="finale">
-      <div class="content section-heading arrive"><p class="eyebrow">05 · The quiet heart of the garden</p><h2>Sebelum kamu<br><em>pulang…</em></h2><p>[FINAL_MESSAGE]</p><div class="final-heart" aria-hidden="true">✦</div><h2 class="final-name" style="font-size:clamp(34px,6vw,56px);margin-top:22px">Happy Birthday,<br><em data-name>[NAME]</em></h2></div>
     </section>
   </main>
-  <footer><span>Sebuah taman kecil, dibuat dengan sepenuh hati</span><span>Untukmu, selalu ♡</span></footer>
 
-  <script src="./assets/js/vendor/motion.min.js" defer></script>
-  <script src="./assets/js/garden-data.js" defer></script>
-  <script src="./assets/js/main.js" defer></script>
+  <section class="puzzle-page" id="puzzlePage" aria-labelledby="puzzleTitle" hidden>
+    <div class="puzzle-backdrop" aria-hidden="true"></div>
+    <div class="puzzle-layout">
+      <header class="puzzle-heading">
+        <p class="puzzle-eyebrow"><span>✦</span> SATU POTONG CERITA <span>✦</span></p>
+        <h2 id="puzzleTitle">Satukan kembali<br><em>semesta kecil ini.</em></h2>
+        <p class="puzzle-intro">Susun gambar galaksi sementara ini. Ada sesuatu yang menunggumu setelah semuanya kembali pada tempatnya.</p>
+      </header>
+
+      <div class="puzzle-play-area">
+        <div class="puzzle-board" id="puzzleBoard" role="group" aria-label="Puzzle gambar, 9 potongan"></div>
+        <div class="puzzle-meta">
+          <p class="puzzle-status" id="puzzleStatus" role="status" aria-live="polite">Ketuk satu potongan, lalu ketuk tempat tujuannya.</p>
+          <p class="puzzle-progress" id="puzzleProgress">0 / 9 potongan tepat</p>
+        </div>
+        <button class="shuffle-button" type="button" id="shufflePuzzle">Acak ulang</button>
+
+        <div class="letter-area" id="letterArea" hidden>
+          <div class="letter-invitation">
+            <span class="letter-star" aria-hidden="true">✦</span>
+            <p>Galaksinya sudah utuh.<br><em>Ada surat kecil untukmu.</em></p>
+            <button class="letter-cover" id="openLetter" type="button" aria-expanded="false" aria-controls="letterPaper">
+              <svg viewBox="0 0 48 40" aria-hidden="true"><path d="M4 8.5 24 23 44 8.5M5 7h38a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><path d="m4 34 14-13m26 13L30 21"/></svg>
+              <span id="letterLabel">Buka surat</span>
+              <span class="letter-arrow" aria-hidden="true">↗</span>
+            </button>
+          </div>
+          <article class="letter-paper" id="letterPaper" hidden aria-labelledby="letterTitle">
+            <figure class="paper-art">
+              <img src="./assets/images/bubu-dudu-birthday.webp" alt="Bubu dan Dudu merayakan ulang tahun bersama" width="736" height="736" loading="lazy" decoding="async">
+            </figure>
+            <p class="paper-eyebrow">SURAT KECIL, PENUH SAYANG</p>
+            <h3 id="letterTitle">Untukmu, [NAME]</h3>
+            <p class="paper-message">[ISI_SURAT]</p>
+            <span class="paper-signoff">Selalu ada di sisimu <span aria-hidden="true">✦</span></span>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="memory-page" id="memoryPage" aria-labelledby="memoryTitle" hidden>
+    <div class="memory-atmosphere" aria-hidden="true"></div>
+    <div class="memory-content">
+      <header class="memory-heading">
+        <p class="memory-eyebrow"><span>04</span> · GULUNGAN KENANGAN</p>
+        <h2 id="memoryTitle">Momen yang selalu<br><em>ingin kuulang.</em></h2>
+        <p>Empat bingkai kecil untuk foto dan cerita yang ingin kamu simpan dekat.</p>
+      </header>
+
+      <div class="memory-viewer" id="memoryViewer" role="region" aria-label="Gulungan foto kenangan">
+        <span class="reel-wheel" id="reelWheel" aria-hidden="true"></span>
+        <div class="film-counter" id="memoryCounter" aria-live="polite">01 / 04</div>
+        <div class="film-window" id="memoryWindow" role="group" tabindex="0" aria-label="Foto kenangan. Gunakan tombol panah kiri dan kanan untuk berpindah.">
+          <div class="film-track" id="memoryTrack"></div>
+        </div>
+        <div class="memory-caption" aria-live="polite" aria-atomic="true">
+          <p class="memory-date" id="memoryDate">[MEMORY_DATE_01]</p>
+          <p class="memory-story" id="memoryStory">[MEMORY_01]</p>
+        </div>
+        <div class="memory-controls" role="group" aria-label="Kontrol gulungan kenangan">
+          <button class="memory-control memory-previous" id="memoryPrevious" type="button" aria-label="Kenangan sebelumnya">←</button>
+          <button class="memory-control memory-play" id="memoryPlay" type="button" aria-pressed="false">Putar kenangan</button>
+          <button class="memory-control memory-next" id="memoryNext" type="button" aria-label="Kenangan berikutnya">→</button>
+        </div>
+        <p class="memory-swipe-hint"><span aria-hidden="true">↔</span> Geser film untuk melihat kenangan berikutnya</p>
+      </div>
+      <p class="memory-continue" id="memoryContinue" role="status" hidden>
+        <span>Lanjut scroll</span><i aria-hidden="true">↓</i>
+      </p>
+    </div>
+  </section>
+
+  <section class="finale-page" id="finalePage" aria-labelledby="finaleTitle" hidden>
+    <div class="finale-glow" aria-hidden="true"></div>
+    <div class="love-rain" id="loveRain" aria-hidden="true"></div>
+    <div class="finale-content">
+      <p class="finale-eyebrow"><span>✦</span> SEBUAH PENUTUP KECIL <span>✦</span></p>
+      <h2 id="finaleTitle">Tiga bunga,<br><em>untukmu.</em></h2>
+      <p class="finale-note">Semoga hari-harimu selalu mekar dengan hal-hal baik.</p>
+      <svg class="gerbera-bouquet" viewBox="0 0 440 500" role="img" aria-labelledby="gerberaTitle gerberaDescription">
+        <title id="gerberaTitle">Tiga bunga gerbera sebagai kejutan terakhir</title>
+        <desc id="gerberaDescription">Tiga gerbera ungu dengan kelopak berlapis dan batang hijau keunguan.</desc>
+        <defs>
+          <g id="gerbera-head">
+            <g class="gerbera-petals outer-petals">
+              <ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(0)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(18)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(36)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(54)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(72)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(90)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(108)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(126)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(144)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(162)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(180)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(198)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(216)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(234)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(252)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(270)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(288)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(306)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(324)"/><ellipse cx="0" cy="-27" rx="6.5" ry="19" transform="rotate(342)"/>
+            </g>
+            <g class="gerbera-petals inner-petals">
+              <ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(9)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(33)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(57)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(81)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(105)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(129)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(153)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(177)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(201)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(225)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(249)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(273)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(297)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(321)"/><ellipse cx="0" cy="-17" rx="4.7" ry="12" transform="rotate(345)"/>
+            </g>
+            <circle class="gerbera-disc" r="10"/><circle class="gerbera-disc-light" r="5"/>
+          </g>
+        </defs>
+        <g class="gerbera-stems" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M112 207C115 290 143 365 175 476"/><path d="M220 169C218 270 220 361 220 476"/><path d="M328 210C321 293 291 374 264 476"/>
+          <path class="stem-leaf" d="M134 335c-39-37-56-33-58-31 10 32 31 43 61 39m76-60c-32-41-50-40-53-38 6 34 23 50 54 50m72 31c34-40 53-37 56-35-8 34-28 47-58 43m-45-111c33-35 51-31 54-29-8 31-27 42-55 37"/>
+        </g>
+        <g class="gerbera-flower flower-left" transform="translate(112 204) scale(.94)"><g class="bloom-motion"><use href="#gerbera-head"/></g></g>
+        <g class="gerbera-flower flower-center" transform="translate(220 164) scale(1.08)"><g class="bloom-motion"><use href="#gerbera-head"/></g></g>
+        <g class="gerbera-flower flower-right" transform="translate(328 207) scale(.94)"><g class="bloom-motion"><use href="#gerbera-head"/></g></g>
+        <path class="bouquet-ribbon" d="M177 425c23 11 63 12 86 0l-8 27-27-11-17 30-14-28-26 12 6-30Z"/>
+      </svg>
+      <p class="finale-signoff">DENGAN HANGAT, UNTUKMU <span aria-hidden="true">✦</span></p>
+      <button class="finale-music-toggle" id="finaleMusicToggle" type="button" aria-label="Putar musik" aria-pressed="false">
+        <span aria-hidden="true">♫</span><span id="finaleMusicLabel">Putar musik</span>
+      </button>
+    </div>
+  </section>
 </body>
 </html>

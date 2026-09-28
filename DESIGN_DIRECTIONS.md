@@ -1,57 +1,57 @@
-# Design direction — Enchanted Lavender Garden
+# Design direction: Violet threshold, cosmic heart, hidden letter
 
 ## Reference reading
 
-The reference is a portrait view down a quiet garden aisle at twilight. The stone path narrows toward a lavender bench, while tall trees and lilac blooms form a canopy overhead. Soft, out-of-focus flowers frame the sides and top; tiny warm lights sit deep in the foliage. Its visual strength comes from layered depth and a calm focal point, not from decorative effects alone.
+The opening reference sets violet blossoms against an almost-black night, leaving breathing room through the middle. The second reference turns a spiral galaxy into a heart shape: icy blue light traces its arms while a warm gold core anchors the center. The experience moves from that quiet floral threshold into a deep-space birthday reveal, then lets the central heart break into the puzzle pieces that open a letter. The next clearing carries those memories on a violet film strip, with warm paper captions and gentle mechanical motion.
 
-Translate that composition into a secret-garden journey: the visitor enters through a shadowed floral threshold, follows a softly lit path through memories, pauses at a letter, then reaches a quiet final clearing. Keep the path, flower canopy, bench-like focal point, warm pin lights, and foreground blur as recurring motifs. Draw a new web scene with CSS and inline SVG rather than copying the reference image.
+## Three dials
 
-## Art direction
+- **Contrast:** ink-dark night, lavender petals, blue-white starlight, and a small warm-gold core.
+- **Ornament:** floral framing belongs to the PIN threshold; the birthday reveal uses stars, orbit lines, and one luminous heart. The puzzle keeps the same cosmic image; the memories use a tactile film edge, perforations, and a small reel hub.
+- **Motion:** the PIN panel becomes a door as its lock descends and turns; the heart then dissolves into a 3×3 set of image pieces. The film strip advances by swipe, buttons, or deliberate playback.
 
-- **Mood:** intimate, peaceful, romantic, nostalgic, softly magical. Mature and editorial rather than cute or celebratory-template-like.
-- **Palette:** near-black plum `#17121d`, deep violet `#30203f`, garden purple `#644a7b`, lavender `#aa8bc5`, muted lilac `#d0bbdc`, dusty mauve `#b989a6`, warm ivory `#f4ede5`, and firefly amber `#e9c98d`. Use dark-to-light layers; never fill the whole page with one purple.
-- **Light:** twilight gradients, low-opacity radial bloom, a small number of warm bokeh/firefly points, and subtle illumination around the path. Keep glow soft, local, and non-neon.
-- **Depth and composition:** deep garden silhouettes in the background, a central path and sparse focal point in the middle ground, and a few blurred botanical shapes at the edges. Text and content sit in clear readable areas. The garden scene should be light, vector/CSS-based, and responsive.
-- **Typography:** native editorial serif stacks (Iowan Old Style / Palatino / Georgia) and system sans stacks (Apple system / Segoe UI). This keeps the page crisp without downloading web fonts on mobile. Use compact uppercase tracking only for small labels. No handwriting font.
-- **Spacing:** 8px rhythm; mobile gutters 22–26px, desktop 7–10vw; section vertical spacing 88px mobile / 128px desktop; content width around 1120px. Preserve generous negative space around the focal message.
-- **Components:** quiet translucent dark panels with thin lavender/ivory borders; editorial photo frames with restrained offset, soft corners only where useful; large touch-friendly CTA; slim path/progress markers. Photos use explicit `[PHOTO_01]`… placeholders until the owner supplies images.
-- **Animation:** slow opacity/translate reveals, slight blur-to-sharp for garden layers, gentle firefly drift, and one subdued entrance transition. Animate transform/opacity; cap the light particles. Respect `prefers-reduced-motion`, and keep all content readable without animation.
-- **Responsive strategy:** mobile-first; use `100svh` with safe-area padding and a `100vh` fallback. Keep the path and text centered, decorations at the edges, cards in a vertical editorial sequence, buttons at least 44px tall, and all interactions tap/click accessible. Desktop widens the same scene and uses more negative space without changing the narrative.
-- **Performance/accessibility:** no video, canvas, remote fonts, or remote imagery; use CSS and a small local SVG scene, lazy-load owner-provided photos, semantic sections/buttons, descriptive image alt text, visible focus, sufficient text contrast, and no autoplay audio.
+## Palette and type
 
-## Journey
+- Night: `#090718`, `#050611`
+- Bloom: `#6824ac`, `#8738cf`, `#bc68f2`, `#e5a7ff`
+- Cosmic blue: `#383a9a`, `#8177e8`, `#b2dcff`
+- Warm heart light: `#ffe4b0`; soft text: `#f6efff`
+- Display: system serif stack; interface: system sans-serif stack. No remote fonts are required.
 
-1. **Entrance:** “Come a little closer…” over the flower-framed garden; CTA “Enter the Garden”.
-2. **First clearing:** “Happy Birthday, [NAME]” and an invitation to follow the path.
-3. **Memory path:** four editable photo/date/caption placeholders arranged as editorial moments, not a grid.
-4. **Birthday letter:** a readable personal note with a reveal and a skip-to-read option.
-5. **Hidden light:** one discoverable flower/light reveals `[HIDDEN_MESSAGE]` and warms the garden slightly.
-6. **Deep garden:** quieter final message `[FINAL_MESSAGE]`, with a calm warm glow.
+## Page one: PIN threshold
 
-## Content source of truth
+- Full-height, mobile-first night scene with the supplied flower reference optimized as a local WebP.
+- The centered PIN keypad has six positions, large touch targets, keyboard input, clear, backspace, live status, and visible focus.
+- Fine inset trim and small hinges make the rounded PIN panel read as a locked door. A correct PIN sends the lock to the center, turns its shackle, and opens the two panel leaves into the birthday reveal.
 
-Keep all personal text, name, date, photo paths, captions, and hidden/final messages together in one `GARDEN_DATA` object in `assets/js/garden-data.js`. Leave honest placeholders where no personal information or photos have been provided. Do not invent the couple's history.
+## Page two: birthday reveal
 
-## Selected direction
+- The supplied galaxy reference becomes a local WebP backdrop, darkened enough to preserve heading contrast.
+- “Happy Birthday” and `[NAME]` sit above one dimensional nebula heart. A short, non-personal wish keeps the focus on the greeting.
+- The heart uses layered light, depth, a slow perspective sway, and two quiet orbital rings with moving lavender starlights instead of a heavy 3D engine.
+- The doorway grows out of the PIN panel, then the camera moves through its open leaves as the star field and heart settle into focus with a restrained fade and scale, without a corner light flare.
 
-**Enchanted Lavender Garden** supersedes the earlier Afterglow Cinema exploration for this reference-led iteration. Preserve the editorial restraint from that direction, while making the garden pathway and layered twilight scene the main visual identity.
+## Page three: image puzzle and letter
 
-## Motion refinement — 2026-09-24
+- A touch-first 3×3 tile puzzle uses the supplied galaxy image as a temporary picture. Selecting one piece and then another swaps their positions; a shuffle control starts a new solvable arrangement.
+- When all nine tiles are correctly placed, a folded letter control appears. Pressing it unfolds a readable paper card with the `[ISI_SURAT]` placeholder.
+- During the scroll from the birthday reveal, the heart image breaks into matching tiles. The completed morph lines up with the playable puzzle below.
 
-This is an audit-led motion pass over the existing experience. Keep its visual identity, palette, copy, section order, and layout; make the garden feel gently alive and let each reveal connect to the next as the visitor moves through it.
+## Page four: memories on film
 
-- **Design variance: 6/10.** Keep the established lavender garden and editorial composition; add motion detail without changing the concept.
-- **Motion intensity: 8/10.** Use a living entrance, slow botanical drift, warm firefly movement, a traveling path glint, and reversible scroll reveals. The deep garden stays calmer.
-- **Visual density: 4/10.** Keep the existing sparse composition and use only a few small ornaments at a time.
+- Four mobile-first photo frames travel inside a continuous film strip, with sprocket holes and an understated reel wheel.
+- Each frame pairs a photo placeholder with its date and memory caption. Swipe, keyboard arrows, or large touch controls move through the strip; autoplay is opt-in.
+- Photo paths and captions live in the `memories` array in `assets/js/entrance.js`. Leave `image` empty to keep the placeholder, then add a relative image path when a photo is ready.
 
-### Motion behavior
+## Page five: gerbera finale
 
-- The entrance artwork and ambient glow breathe slowly; a handful of fireflies and petals drift at different speeds to suggest foreground and background depth.
-- The path divider carries a soft glint toward the next memory clearing.
-- Content enters as it approaches the viewport and gently recedes when the visitor scrolls away, so the journey responds in both directions. Memory cards reveal with a short stagger.
-- The flower interaction warms the secret clearing and reveals its message. The letter keeps an immediate-read option.
-- Animate transform and opacity, run ambient loops only while their scene is visible, and honor `prefers-reduced-motion`. A local browser bundle in `assets/js/vendor/` avoids a remote runtime dependency.
+- The film reel is a finite viewing sequence. Once all four frames have been seen, the small **Lanjut scroll** cue appears and the final scene becomes available below it.
+- The closing is deliberately quiet: three original inline-SVG gerbera blooms in violet shades, a soft pool of light, and a short birthday wish. The flowers reveal one after another when the visitor scrolls into the scene.
+- Flower art is vector-based and local to the page, so it stays crisp on phones without adding a large image download. Motion honors `prefers-reduced-motion`.
 
-### Implementation audit
+## Motion, mobile, and accessibility
 
-Preserve the existing semantic sections, content placeholders, relative asset URLs, clean-root deployment setup, and touch targets. Motion is progressive enhancement: if the library is unavailable or reduced motion is requested, all content and interactions remain available without animated reveals.
+- Ambient transforms and opacity drive the petals, starlight, background breathing, and heart movement.
+- Motion is reduced when `prefers-reduced-motion` is enabled. The birthday heading receives focus after the transition.
+- All scenes respect safe-area insets, dynamic viewport height, keyboard/touch interaction, and compact screens. Puzzle tiles and the letter control are keyboard operable.
+- Both reference images are optimized and self-hosted. No remote fonts, external animation packages, or large 3D runtime are needed.
