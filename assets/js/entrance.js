@@ -1,13 +1,13 @@
 (() => {
   const EXPERIENCE = {
     accessPin: '300126',
-    puzzleImage: './assets/images/cosmic-heart.webp',
+    puzzleImage: './assets/images/memories/puzzle.jpeg',
     gridSize: 3,
     memories: [
-      { image: '', photo: '[PHOTO_01]', date: '[MEMORY_DATE_01]', story: '[MEMORY_01]' },
-      { image: '', photo: '[PHOTO_02]', date: '[MEMORY_DATE_02]', story: '[MEMORY_02]' },
-      { image: '', photo: '[PHOTO_03]', date: '[MEMORY_DATE_03]', story: '[MEMORY_03]' },
-      { image: '', photo: '[PHOTO_04]', date: '[MEMORY_DATE_04]', story: '[MEMORY_04]' },
+      { image: './assets/images/memories/1.jpeg', photo: 'Momen 01', date: 'Momen 1', story: 'Momen indah bareng kamu.' },
+      { image: './assets/images/memories/2.jpeg', photo: 'Momen 02', date: 'Momen 2', story: 'Setiap detik bersamamu selalu berarti.' },
+      { image: './assets/images/memories/3.jpeg', photo: 'Momen 03', date: 'Momen 3', story: 'Tawa dan senyummu yang selalu bikin bahagia.' },
+      { image: './assets/images/memories/4.jpeg', photo: 'Momen 04', date: 'Momen 4', story: 'Semoga kita selalu bareng terus ya sayang!' },
     ],
     memoryPlaybackMs: 5200,
   };
@@ -379,7 +379,7 @@
       puzzleSolved = true;
       selectedPiece = null;
       letterArea.hidden = false;
-      puzzleStatus.textContent = 'Gambarnya utuh. Surat kecilmu sudah menunggu.';
+      puzzleStatus.textContent = 'Fotonya udah lengkap! Ada surat buat kamu di bawah.';
     }
   }
 
@@ -405,7 +405,7 @@
     selectedPiece = null;
     moves += 1;
     renderPuzzle();
-    if (!puzzleSolved) puzzleStatus.textContent = 'Bagus. Lanjutkan menyusun gambarnya.';
+    if (!puzzleSolved) puzzleStatus.textContent = 'Keren, lanjut susun lagi ya!';
   }
 
   function toggleLetter() {
