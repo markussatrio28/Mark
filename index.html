@@ -72,7 +72,7 @@
           <b aria-hidden="true">—</b>
           <span class="pin-group"><i></i><i></i></span>
         </div>
-        <p class="pin-hint" id="pinStatus" role="status">6 angka · format tanggal</p>
+        <p class="pin-hint" id="pinStatus" role="status">6 angka · format DD-MM-YY</p>
 
         <div class="keypad" role="group" aria-label="Keypad PIN">
           <button type="button" class="key" data-digit="1" aria-label="Angka 1">1</button>
@@ -191,7 +191,7 @@
           </div>
         </div>
 
-        <p class="birthday-wish">Semoga di umur yang baru ini, kamu makin bahagia ya sayang 💜</p>
+        <p class="birthday-wish">Semoga di umur yang bertambah ini, kamu makin bahagia ya sayang 💜</p>
         <p class="birthday-signoff">FROM YOUR BOYFRIEND ✦</p>
       </div>
     </section>
@@ -202,14 +202,14 @@
     <div class="puzzle-layout">
       <header class="puzzle-heading">
         <p class="puzzle-eyebrow"><span>✦</span> MINI GAME <span>✦</span></p>
-        <h2 id="puzzleTitle">Susun dulu<br><em>fotonya ya!</em></h2>
-        <p class="puzzle-intro">Ketuk potongan foto lalu ketuk posisi yang mau ditukar sampai gambarnya utuh.</p>
+        <h2 id="puzzleTitle">Susun dulu<br><em>puzzle nya ya!</em></h2>
+        <p class="puzzle-intro">Ketuk potongan puzzle lalu ketuk posisi yang mau ditukar sampai gambarnya utuh.</p>
       </header>
 
       <div class="puzzle-play-area">
         <div class="puzzle-board" id="puzzleBoard" role="group" aria-label="Puzzle gambar, 9 potongan"></div>
         <div class="puzzle-meta">
-          <p class="puzzle-status" id="puzzleStatus" role="status" aria-live="polite">Ketuk satu potongan, lalu ketuk tempat tujuannya.</p>
+          <p class="puzzle-status" id="puzzleStatus" role="status" aria-live="polite">Ayo poii masa gitu aja nda bisa</p>
           <p class="puzzle-progress" id="puzzleProgress">0 / 9 potongan tepat</p>
         </div>
         <button class="shuffle-button" type="button" id="shufflePuzzle">Acak ulang</button>
@@ -217,7 +217,7 @@
         <div class="letter-area" id="letterArea" hidden>
           <div class="letter-invitation">
             <span class="letter-star" aria-hidden="true">✦</span>
-            <p>Fotonya udah lengkap!<br><em>Ada surat buat kamu.</em></p>
+            <p>Okeh Puzzle nya dah bener!<br><em>Nih ada surat buat kamu.</em></p>
             <button class="letter-cover" id="openLetter" type="button" aria-expanded="false" aria-controls="letterPaper">
               <svg viewBox="0 0 48 40" aria-hidden="true"><path d="M4 8.5 24 23 44 8.5M5 7h38a2 2 0 0 1 2 2v24a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Z"/><path d="m4 34 14-13m26 13L30 21"/></svg>
               <span id="letterLabel">Buka surat</span>
@@ -229,8 +229,8 @@
               <img src="./assets/images/bubu-dudu-birthday.webp" alt="Bubu dan Dudu merayakan ulang tahun bersama" width="736" height="736" loading="lazy" decoding="async">
             </figure>
             <p class="paper-eyebrow">BUAT KAMU 💜</p>
-            <h3 id="letterTitle">Happy Birthday, Grace!</h3>
-            <p class="paper-message">Selamat ulang tahun ya sayang! Semoga di usiamu yang baru ini, kamu selalu diberikan kesehatan, kebahagiaan, dan kemudahan dalam segala hal yang kamu impikan. Makasih ya udah selalu hadir dan nemenin hari-hariku. Aku sayang banget sama kamu! 💜</p>
+            <h3 id="letterTitle">Happy Birthday, Sayang !</h3>
+            <p class="paper-message">Selamat ulang tahun papoiii! Asikk udah umur 21 aja nichh, semoga semua keinginan mu bisa segera terkabul yahh pokonya makin gacor dah di umur 21 ini. Makasih ya udah selalu ada dan nemenin aku selama ini. WISH U ALL THE BEST! 💜</p>
             <span class="paper-signoff">With all my love 💜</span>
           </article>
         </div>
@@ -242,9 +242,9 @@
     <div class="memory-atmosphere" aria-hidden="true"></div>
     <div class="memory-content">
       <header class="memory-heading">
-        <p class="memory-eyebrow">OUR MEMORIES</p>
-        <h2 id="memoryTitle">Momen kita<br><em>berdua.</em></h2>
-        <p>Beberapa foto dan kenangan manis perjalanan kita bersama.</p>
+        <p class="memory-eyebrow"></p>
+        <h2 id="memoryTitle">Recap Perjalanan Hidupmu<br><em>Di Umur 20.</em></h2>
+        <p>Beberapa foto kamu nih, 4 ajalah ya nda usah banyak-banyak.</p>
       </header>
 
       <div class="memory-viewer" id="memoryViewer" role="region" aria-label="Gulungan foto kenangan">
@@ -259,10 +259,10 @@
         </div>
         <div class="memory-controls" role="group" aria-label="Kontrol gulungan kenangan">
           <button class="memory-control memory-previous" id="memoryPrevious" type="button" aria-label="Kenangan sebelumnya">←</button>
-          <button class="memory-control memory-play" id="memoryPlay" type="button" aria-pressed="false">Putar kenangan</button>
+          <button class="memory-control memory-play" id="memoryPlay" type="button" aria-pressed="false">Play</button>
           <button class="memory-control memory-next" id="memoryNext" type="button" aria-label="Kenangan berikutnya">→</button>
         </div>
-        <p class="memory-swipe-hint"><span aria-hidden="true">↔</span> Geser foto untuk melihat momen berikutnya</p>
+        <p class="memory-swipe-hint"><span aria-hidden="true">↔</span> Geser-Geser Poii</p>
       </div>
       <p class="memory-continue" id="memoryContinue" role="status" hidden>
         <span>Lanjut scroll</span><i aria-hidden="true">↓</i>
@@ -275,8 +275,8 @@
     <div class="love-rain" id="loveRain" aria-hidden="true"></div>
     <div class="finale-content">
       <p class="finale-eyebrow"><span>✦</span> FOR YOU <span>✦</span></p>
-      <h2 id="finaleTitle">Bunga buat<br><em>kamu.</em></h2>
-      <p class="finale-note">Semoga hari-harimu selalu mekar dengan bahagia.</p>
+      <h2 id="finaleTitle">3 Gerbera<br><em>Flowers.</em></h2>
+      <p class="finale-note">Janlup dicari yah artinya.</p>
       <svg class="gerbera-bouquet" viewBox="0 0 440 500" role="img" aria-labelledby="gerberaTitle gerberaDescription">
         <title id="gerberaTitle">Tiga bunga gerbera sebagai kejutan terakhir</title>
         <desc id="gerberaDescription">Tiga gerbera ungu dengan kelopak berlapis dan batang hijau keunguan.</desc>
@@ -300,7 +300,7 @@
         <g class="gerbera-flower flower-right" transform="translate(328 207) scale(.94)"><g class="bloom-motion"><use href="#gerbera-head"/></g></g>
         <path class="bouquet-ribbon" d="M177 425c23 11 63 12 86 0l-8 27-27-11-17 30-14-28-26 12 6-30Z"/>
       </svg>
-      <p class="finale-signoff">DENGAN CINTA, BUAT GRACE <span aria-hidden="true">✦</span></p>
+      <p class="finale-signoff">BUNGA YANG ASLI MENYUSUL YAH<span aria-hidden="true">✦</span></p>
       <button class="finale-music-toggle" id="finaleMusicToggle" type="button" aria-label="Putar musik" aria-pressed="false">
         <span aria-hidden="true">♫</span><span id="finaleMusicLabel">Putar musik</span>
       </button>
