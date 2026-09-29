@@ -4,10 +4,10 @@
     puzzleImage: './assets/images/memories/puzzle.jpeg',
     gridSize: 3,
     memories: [
-      { image: './assets/images/memories/1.jpeg', photo: 'Momen 01', date: 'Momen 1', story: 'Momen indah bareng kamu.' },
-      { image: './assets/images/memories/2.jpeg', photo: 'Momen 02', date: 'Momen 2', story: 'Setiap detik bersamamu selalu berarti.' },
-      { image: './assets/images/memories/3.jpeg', photo: 'Momen 03', date: 'Momen 3', story: 'Tawa dan senyummu yang selalu bikin bahagia.' },
-      { image: './assets/images/memories/4.jpeg', photo: 'Momen 04', date: 'Momen 4', story: 'Semoga kita selalu bareng terus ya sayang!' },
+      { image: './assets/images/memories/1.jpeg', photo: 'Momen 01', date: 'Momen 1', story: 'Pap dari kamu waktu tampil di EcoFest.' },
+      { image: './assets/images/memories/2.jpeg', photo: 'Momen 02', date: 'Momen 2', story: 'Kalo yang ini waktu kita di Borneo UGM hehe.' },
+      { image: './assets/images/memories/3.jpeg', photo: 'Momen 03', date: 'Momen 3', story: 'Ini tu pap habis pelayanan.' },
+      { image: './assets/images/memories/4.jpeg', photo: 'Momen 04', date: 'Momen 4', story: 'Kalo yang ini pas kita bikin surat sehat di Klinik UGM' },
     ],
     memoryPlaybackMs: 5200,
   };

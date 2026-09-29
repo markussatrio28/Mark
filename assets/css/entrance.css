@@ -312,18 +312,38 @@ h1 em { color: #d6b6ed; font-weight: 400; }
 .finale-content h2 em { color: #d2b3e8; font-weight: 400; }
 .finale-note { max-width: 310px; margin: 16px auto 0; color: rgba(224,214,234,.75); font-size: 13px; line-height: 1.65; opacity: 0; transform: translateY(12px); transition: opacity 850ms ease 180ms, transform 950ms ease 180ms; }
 .gerbera-bouquet { display: block; width: min(100%, 370px); height: auto; margin: 13px auto -4px; overflow: visible; opacity: 0; transform: translateY(10px); filter: drop-shadow(0 18px 32px rgba(5,3,13,.35)); transition: opacity 1.25s ease 120ms, transform 1.35s cubic-bezier(.18,.7,.18,1) 120ms; }
-.gerbera-stems { stroke: #a58cb2; stroke-width: 4; opacity: .92; }
-.stem-leaf { fill: rgba(98,83,118,.38); stroke: #a58cb2; stroke-width: 2.2; }
-.gerbera-petals { stroke: rgba(247,225,255,.32); stroke-width: .8; }
-.outer-petals { fill: #a94de4; }
-.inner-petals { fill: #d576ec; }
-.flower-center .outer-petals { fill: #bb5ee9; }
-.flower-center .inner-petals { fill: #e18aec; }
-.flower-right .outer-petals { fill: #8244c8; }
-.flower-right .inner-petals { fill: #c170e4; }
-.gerbera-disc { fill: #f1c779; stroke: #fff0bc; stroke-width: 1.2; }
-.gerbera-disc-light { fill: #fff0bd; opacity: .88; }
-.bouquet-ribbon { fill: rgba(185,133,204,.24); stroke: rgba(224,197,234,.6); stroke-width: 1.3; }
+.gerbera-stems { stroke: #528c38; stroke-width: 4; opacity: .95; }
+.stem-leaf { fill: rgba(82,140,56,.42); stroke: #528c38; stroke-width: 2.2; }
+.gerbera-petals { stroke: var(--petal-stroke, rgba(255,255,255,.35)); stroke-width: .8; }
+.outer-petals { fill: var(--petal-outer, #f67223); }
+.inner-petals { fill: var(--petal-inner, #ffa048); }
+.flower-left {
+  --petal-outer: #f67223;
+  --petal-inner: #ffa24a;
+  --petal-stroke: rgba(255,230,200,.4);
+  --disc-base: #536d36;
+  --disc-stroke: #7b9c4f;
+  --disc-light: #97ba64;
+}
+.flower-center {
+  --petal-outer: #f5dc26;
+  --petal-inner: #ffeb5c;
+  --petal-stroke: rgba(255,255,210,.5);
+  --disc-base: #6b2818;
+  --disc-stroke: #8e3826;
+  --disc-light: #b94b34;
+}
+.flower-right {
+  --petal-outer: #ce2849;
+  --petal-inner: #e74768;
+  --petal-stroke: rgba(255,220,230,.4);
+  --disc-base: #4a2122;
+  --disc-stroke: #6c3233;
+  --disc-light: #964a4b;
+}
+.gerbera-disc { fill: var(--disc-base, #536d36); stroke: var(--disc-stroke, #7b9c4f); stroke-width: 1.2; }
+.gerbera-disc-light { fill: var(--disc-light, #97ba64); opacity: .88; }
+.bouquet-ribbon { fill: rgba(240,196,98,.3); stroke: rgba(240,196,98,.8); stroke-width: 1.3; }
 .bloom-motion { transform-box: fill-box; transform-origin: center; }
 .finale-page.is-entered .finale-glow { opacity: 1; animation: finale-glow-breathe 7s ease-in-out infinite alternate; }
 .finale-page.is-entered .finale-eyebrow, .finale-page.is-entered .finale-content h2, .finale-page.is-entered .finale-note { opacity: 1; transform: translateY(0); }
