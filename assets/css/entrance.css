@@ -375,24 +375,63 @@ h1 em { color: #d6b6ed; font-weight: 400; }
 @keyframes bloom-sway { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
 
 @media (max-width: 699px) {
-  /* Keep the garden atmospheric while avoiding large, continuously re-rasterized layers on phones. */
+  /* ── Opening scene: reduce GPU layers ── */
   .blossoms { animation: none; transform: none; }
   .lock-card { backdrop-filter: none; -webkit-backdrop-filter: none; }
   .petal { box-shadow: none; will-change: auto; animation-duration: 22s; }
   .petal-two, .petal-five, .petal-eight, .petal-eleven { box-shadow: none; }
   .petal-three, .petal-six, .petal-nine, .petal-twelve { display: none; }
-  .glimmer { box-shadow: none; }
-  .glimmer { animation-duration: 6s; }
+  .glimmer { box-shadow: none; animation-duration: 6s; }
+
+  /* ── Door transition: lighter shadows ── */
+  .door-portal { box-shadow: 0 0 18px rgba(175,118,224,.2), inset 0 0 24px rgba(202,158,240,.08); }
+  .portal-door { box-shadow: inset 0 0 18px rgba(213,173,255,.08); }
+  .portal-light { filter: none; }
+
+  /* ── Heart: simplify orbit layers ── */
   .heart-aura { filter: none; animation: none; opacity: .78; }
   .heart-3d { animation-duration: 12s; }
   .heart-art { filter: drop-shadow(0 10px 16px rgba(0,0,0,.38)); }
   .heart-highlight { filter: none; }
   .heart-orbit { box-shadow: none; }
+  .heart-orbit i, .heart-orbit::after { display: none; }
+  .orbit-star { display: none; }
   .orbit-one { animation-duration: 40s; }
   .orbit-two { animation: orbit-two-turn 56s linear infinite; opacity: .58; }
-  .finale-glow, .gerbera-bouquet { filter: none; }
-  .paper-art { width: min(100%, 282px); }
-  .love-rain-heart { text-shadow: 0 0 9px rgba(174,116,245,.58); }
+  .heart-star-orbit { display: none; }
+
+  /* ── Morph puzzle: remove backdrop blur ── */
+  .morph-puzzle { box-shadow: 0 8px 32px rgba(0,0,0,.35); }
+  .morph-tile { box-shadow: none; }
+
+  /* ── Letter paper: compact for phone screens ── */
+  .letter-paper { width: min(92%, 340px); padding: 14px 16px 18px; border-radius: 20px; box-shadow: 0 8px 0 rgba(80,48,52,.3), 0 16px 36px rgba(0,0,0,.28), inset 0 0 0 4px rgba(255,255,255,.5); }
+  .letter-paper::before { inset: 8px; border-radius: 13px; }
+  .paper-art { width: min(100%, 220px); margin-bottom: 8px; border-radius: 13px; box-shadow: 0 3px 0 rgba(123,81,72,.1); }
+  .paper-art img { max-height: 240px; object-fit: cover; object-position: center 30%; }
+  .paper-eyebrow { font-size: 7px; padding: 4px 8px; margin-bottom: 6px; }
+  .letter-paper h3 { font-size: 20px; margin-bottom: 6px; }
+  .paper-message { font-size: 14px; line-height: 1.6; min-height: 40px; }
+  .paper-signoff { font-size: 12px; margin-top: 10px; padding: 6px 10px; }
+  .letter-invitation p { font-size: 19px; margin-bottom: 10px; }
+  .letter-cover { min-width: 160px; min-height: 46px; }
+
+  /* ── Confetti: lighter on mobile ── */
+  .paper-confetti-piece { animation-duration: 1400ms; }
+
+  /* ── Memory film: reduce transitions ── */
+  .film-track { transition-duration: 600ms; }
+  .memory-image { transform: none !important; transition: none; }
+  .film-cell::before, .film-cell::after { opacity: .6; }
+  .reel-wheel { transition-duration: 500ms; }
+
+  /* ── Finale: lighter effects ── */
+  .finale-glow { filter: none; }
+  .gerbera-bouquet { filter: none; }
+  .love-rain-heart { text-shadow: 0 0 9px rgba(174,116,245,.58); will-change: auto; }
+
+  /* ── Contain layout to reduce repaint scope ── */
+  .puzzle-page, .memory-page, .finale-page { contain: layout style; }
 }
 
 @media (min-width: 700px) {

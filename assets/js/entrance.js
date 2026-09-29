@@ -53,6 +53,7 @@
   const memoryPlay = document.querySelector('#memoryPlay');
   const reelWheel = document.querySelector('#reelWheel');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const isMobile = window.matchMedia('(max-width: 699px)').matches;
 
   let entered = '';
   let unlocked = false;
@@ -127,12 +128,13 @@
   }
 
   function spawnLoveHeart(delay = 0) {
-    if (reduceMotion.matches || loveRain.childElementCount >= 18) return;
+    const maxHearts = isMobile ? 8 : 18;
+    if (reduceMotion.matches || loveRain.childElementCount >= maxHearts) return;
     const heart = document.createElement('span');
     heart.className = 'love-rain-heart';
     heart.textContent = '💜';
     heart.style.setProperty('--love-left', `${Math.random() * 94 + 3}%`);
-    heart.style.setProperty('--love-size', `${14 + Math.random() * 12}px`);
+    heart.style.setProperty('--love-size', `${(isMobile ? 12 : 14) + Math.random() * (isMobile ? 8 : 12)}px`);
     heart.style.setProperty('--love-duration', `${7.5 + Math.random() * 3.5}s`);
     heart.style.setProperty('--love-delay', `${delay}ms`);
     heart.style.setProperty('--love-drift', `${Math.round((Math.random() - .5) * 54)}px`);
@@ -143,11 +145,13 @@
   function startLoveRain() {
     stopLoveRain();
     if (reduceMotion.matches) return;
-    for (let index = 0; index < 11; index += 1) spawnLoveHeart(index * 170);
+    const burstCount = isMobile ? 5 : 11;
+    for (let index = 0; index < burstCount; index += 1) spawnLoveHeart(index * 170);
+    const interval = isMobile ? 1400 : 850;
     loveRainTimer = window.setInterval(() => {
       spawnLoveHeart();
-      if (Math.random() > .55) spawnLoveHeart(220);
-    }, 850);
+      if (!isMobile && Math.random() > .55) spawnLoveHeart(220);
+    }, interval);
   }
 
   function stopLoveRain() {
@@ -166,8 +170,9 @@
     const bounds = letterPaper.getBoundingClientRect();
     const launchY = bounds.top + Math.min(104, bounds.height * .28);
 
+    const piecesPerSide = isMobile ? 10 : 18;
     for (let side = 0; side < 2; side += 1) {
-      for (let index = 0; index < 18; index += 1) {
+      for (let index = 0; index < piecesPerSide; index += 1) {
         const piece = document.createElement('i');
         const direction = side === 0 ? 1 : -1;
         piece.className = 'paper-confetti-piece';
@@ -424,7 +429,7 @@
     void letterPaper.offsetWidth;
     letterPaper.classList.add('is-open');
     window.setTimeout(() => createPaperPopperConfetti(), 850);
-    window.setTimeout(() => createPaperPopperConfetti(), 1300);
+    if (!isMobile) window.setTimeout(() => createPaperPopperConfetti(), 1300);
   }
 
   function makeMemorySlides() {
