@@ -95,11 +95,10 @@
     finaleMusicLabel.textContent = playing ? 'Matikan musik' : 'Putar musik';
   }
 
-  function startFinaleMusic() {
-    if (finaleMusicPlaying) return;
-
+  function preloadAudio() {
     if (!finaleAudio) {
       finaleAudio = new Audio('./assets/audio/my-love.mp3');
+      finaleAudio.preload = 'auto';
       finaleAudio.loop = false;
       finaleAudio.volume = 0.45;
       finaleAudio.addEventListener('ended', () => {
@@ -108,6 +107,11 @@
       });
       finaleAudio.addEventListener('error', () => updateMusicButton(false));
     }
+  }
+
+  function startFinaleMusic() {
+    if (finaleMusicPlaying) return;
+    preloadAudio();
 
     finaleAudio.currentTime = 0;
     finaleAudio.play().then(() => {
@@ -272,6 +276,7 @@
   function submitPin() {
     if (entered === EXPERIENCE.accessPin) {
       unlocked = true;
+      preloadAudio();
       opening.classList.add('is-unlocked');
       setStatus('PIN benar.', 'success');
       keys.forEach((key) => { key.disabled = true; });
@@ -453,7 +458,8 @@
         image.className = 'memory-image';
         image.src = memory.image;
         image.alt = memory.story;
-        image.loading = 'lazy';
+        image.loading = index === 0 ? 'eager' : 'lazy';
+        if (index === 0 && 'fetchPriority' in image) image.fetchPriority = 'high';
         image.decoding = 'async';
         visual.append(image);
       } else {
@@ -538,6 +544,23 @@
     updateMemory(memoryIndex + (deltaX < 0 ? 1 : -1));
   }
 
+  let morphMetrics = null;
+
+  function updateMorphMetrics() {
+    if (!pageTwoActive) return;
+    const stageBounds = heartStage.getBoundingClientRect();
+    const boardBounds = puzzleBoard.getBoundingClientRect();
+    const widthScale = boardBounds.width / Math.max(1, morphPuzzle.offsetWidth);
+    const heightScale = boardBounds.height / Math.max(1, morphPuzzle.offsetHeight);
+    morphMetrics = {
+      startX: stageBounds.left + stageBounds.width / 2,
+      startY: stageBounds.top + stageBounds.height / 2,
+      targetX: boardBounds.left + boardBounds.width / 2,
+      targetY: boardBounds.top + boardBounds.height / 2,
+      targetScale: Math.min(widthScale, heightScale)
+    };
+  }
+
   function updateScrollMorph() {
     scrollFrame = 0;
     if (!pageTwoActive) return;
@@ -569,15 +592,8 @@
     puzzlePage.style.setProperty('--puzzle-copy-opacity', String(copyFade));
     puzzlePage.style.setProperty('--puzzle-copy-lift', `${(1 - copyFade) * 14}px`);
 
-    const stageBounds = heartStage.getBoundingClientRect();
-    const boardBounds = puzzleBoard.getBoundingClientRect();
-    const startX = stageBounds.left + stageBounds.width / 2;
-    const startY = stageBounds.top + stageBounds.height / 2;
-    const targetX = boardBounds.left + boardBounds.width / 2;
-    const targetY = boardBounds.top + boardBounds.height / 2;
-    const widthScale = boardBounds.width / Math.max(1, morphPuzzle.offsetWidth);
-    const heightScale = boardBounds.height / Math.max(1, morphPuzzle.offsetHeight);
-    const targetScale = Math.min(widthScale, heightScale);
+    if (!morphMetrics) updateMorphMetrics();
+    const { startX, startY, targetX, targetY, targetScale } = morphMetrics;
     const x = (targetX - startX) * travelEase;
     const y = (targetY - startY) * travelEase;
     const scale = 0.84 + (targetScale - 0.84) * travelEase;
@@ -654,7 +670,7 @@
     }
   });
   window.addEventListener('scroll', scheduleScrollMorph, { passive: true });
-  window.addEventListener('resize', scheduleScrollMorph, { passive: true });
+  window.addEventListener('resize', () => { morphMetrics = null; scheduleScrollMorph(); }, { passive: true });
 
   makeMorphedTiles();
   const morphTiles = [...morphPuzzle.children];
