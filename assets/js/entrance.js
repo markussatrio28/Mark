@@ -359,7 +359,7 @@
     letterPaper.classList.remove('is-open', 'is-closing');
     letterButton.setAttribute('aria-expanded', 'false');
     letterLabel.textContent = 'Buka surat';
-    puzzleStatus.textContent = 'Ketuk satu potongan, lalu ketuk tempat tujuannya.';
+    puzzleStatus.textContent = 'Ayo poii masa gitu aja nda bisa';
     renderPuzzle();
   }
 
@@ -509,7 +509,7 @@
     window.clearInterval(memoryPlayback);
     memoryPlayback = 0;
     memoryPlay.setAttribute('aria-pressed', 'false');
-    memoryPlay.textContent = 'Putar kenangan';
+    memoryPlay.textContent = 'Play';
   }
 
   function toggleMemoryPlayback() {
@@ -519,7 +519,7 @@
     }
 
     memoryPlay.setAttribute('aria-pressed', 'true');
-    memoryPlay.textContent = 'Jeda kenangan';
+    memoryPlay.textContent = 'Pause';
     memoryPlayback = window.setInterval(() => {
       if (memoryIndex >= EXPERIENCE.memories.length - 1) {
         stopMemoryPlayback();
